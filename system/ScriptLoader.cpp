@@ -145,7 +145,6 @@ extern void AddSC_boss_brutallus();                         //sunwell_plateau
 extern void AddSC_boss_kalecgos();
 extern void AddSC_instance_sunwell_plateau();
 extern void AddSC_boss_archaedas();                         //uldaman
-extern void AddSC_boss_ironaya();
 extern void AddSC_instance_uldaman();
 extern void AddSC_uldaman();
 extern void AddSC_boss_akilzon();                           //zulaman
@@ -303,11 +302,20 @@ extern void AddSC_boss_novos();                             //draktharon_keep
 extern void AddSC_boss_dred();
 extern void AddSC_boss_tharonja();
 extern void AddSC_boss_trollgore();
+extern void AddSC_instance_draktharon_keep();
 extern void AddSC_boss_colossus();                          //gundrak
+extern void AddSC_boss_eck();
 extern void AddSC_boss_galdarah();
 extern void AddSC_boss_moorabi();
 extern void AddSC_boss_sladran();
 extern void AddSC_instance_gundrak();
+
+extern void AddSC_boss_gafrost();                           // ICC, pit_of_saron
+extern void AddSC_boss_krick_and_ick();
+extern void AddSC_boss_tyrannus();
+extern void AddSC_instance_pit_of_saron();
+extern void AddSC_pit_of_saron();
+
 extern void AddSC_boss_anubrekhan();                        //naxxramas
 extern void AddSC_boss_four_horsemen();
 extern void AddSC_boss_faerlina();
@@ -416,12 +424,6 @@ extern void AddSC_boss_devourer_of_souls();
 extern void AddSC_boss_bronjahm();
 extern void AddSC_trash_forge_of_souls();
 extern void AddSC_forge_of_souls();
-
-extern void AddSC_instance_pit_of_saron();
-extern void AddSC_pit_of_saron();
-extern void AddSC_boss_forgemaster_gafrost();
-extern void AddSC_boss_krick();
-extern void AddSC_boss_scourgelord_tyrannus();
 
 extern void AddSC_instance_halls_of_reflection();
 extern void AddSC_halls_of_reflection();
@@ -658,7 +660,6 @@ void AddScripts()
     AddSC_boss_kalecgos();
     AddSC_instance_sunwell_plateau();
     AddSC_boss_archaedas();                                 //uldaman
-    AddSC_boss_ironaya();
     AddSC_instance_uldaman();
     AddSC_uldaman();
     AddSC_boss_akilzon();                                   //zulaman
@@ -805,11 +806,20 @@ void AddScripts()
     AddSC_boss_dred();
     AddSC_boss_tharonja();
     AddSC_boss_trollgore();
+    AddSC_instance_draktharon_keep();
     AddSC_boss_colossus();                                  //gundrak
+    AddSC_boss_eck();
     AddSC_boss_galdarah();
     AddSC_boss_moorabi();
     AddSC_boss_sladran();
     AddSC_instance_gundrak();
+
+    AddSC_boss_gafrost();                                   // ICC, pit_of_saron
+    AddSC_boss_krick_and_ick();
+    AddSC_boss_tyrannus();
+    AddSC_instance_pit_of_saron();
+    AddSC_pit_of_saron();
+
     AddSC_boss_anubrekhan();                                //naxxramas
     AddSC_boss_four_horsemen();
     AddSC_boss_faerlina();
@@ -918,12 +928,6 @@ void AddScripts()
     AddSC_boss_bronjahm();
     AddSC_trash_forge_of_souls();
     AddSC_forge_of_souls();
-
-    AddSC_instance_pit_of_saron();
-    AddSC_pit_of_saron();
-    AddSC_boss_forgemaster_gafrost();
-    AddSC_boss_krick();
-    AddSC_boss_scourgelord_tyrannus();
 
     AddSC_instance_halls_of_reflection();
     AddSC_halls_of_reflection();
