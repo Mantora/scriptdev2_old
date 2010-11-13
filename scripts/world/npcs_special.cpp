@@ -48,6 +48,7 @@ mob_risen_ghoul          90%    Death Knight's Risen Ghoul and Army of the Dead 
 npc_experience_eliminator 100%		NPC to stop gaining experience
 npc_winter_reveler		100%	Winterveil event
 npc_metzen				100%	Winterveil event
+npc_training_dummy		100%	AI for training dummies
 EndContentData */
 
 /*########
@@ -2701,6 +2702,50 @@ bool GossipSelect_npc_metzen(Player* pPlayer, Creature* pCreature, uint32 uiSend
     return true;
 }
 
+/*######
+## npc_training_dummy
+######*/
+
+#define OUT_OF_COMBAT_TIME 5000
+
+struct MANGOS_DLL_DECL npc_training_dummyAI : public Scripted_NoMovementAI
+{
+    uint32 combat_timer;
+
+    npc_training_dummyAI(Creature* pCreature) : Scripted_NoMovementAI(pCreature)
+    {
+        Reset();
+    }
+
+    void Reset()
+    {
+        combat_timer = 0;
+		m_creature->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PVP_ATTACKABLE);
+    }
+
+    void DamageTaken(Unit* pDoneBy, uint32 &uiDamage)
+    {
+        combat_timer = 0;
+    }
+
+    void UpdateAI(const uint32 diff)
+    {
+        if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
+            return;
+
+        m_creature->ModifyHealth(m_creature->GetMaxHealth());
+
+        combat_timer += diff;
+        if (combat_timer > OUT_OF_COMBAT_TIME)
+            EnterEvadeMode();
+    }
+};
+
+CreatureAI* GetAI_npc_training_dummy(Creature* pCreature)
+{
+    return new npc_training_dummyAI(pCreature);
+}
+
 void AddSC_npcs_special()
 {
     Script* newscript;
@@ -2831,5 +2876,10 @@ void AddSC_npcs_special()
     newscript->Name = "npc_metzen";
     newscript->pGossipHello = &GossipHello_npc_metzen;
 	newscript->pGossipSelect = &GossipSelect_npc_metzen;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "npc_training_dummy";
+    newscript->GetAI = &GetAI_npc_training_dummy;
     newscript->RegisterSelf();
 }
