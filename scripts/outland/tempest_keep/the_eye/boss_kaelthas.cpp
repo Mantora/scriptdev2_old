@@ -123,7 +123,16 @@ enum
     MODEL_ID_PHOENIX                    = 19682,
     MODEL_ID_PHOENIX_EGG                = 20245,
 
-    MAX_ADVISORS                        = 4
+    MAX_ADVISORS                        = 4,
+
+    //legendary items
+    ITEM_WRAP_SLICER                    = 30311,
+    ITEM_INFINITY_BLADE                 = 30312,
+    ITEM_STAFF_OF_DISINTEGRATION        = 30313,
+    ITEM_PHASESHIFT_BULWARK             = 30314,
+    ITEM_DEVASTATION                    = 30316,
+    ITEM_COSMIC_INFUSER                 = 30317,
+    ITEM_NETHERSTAND_LONGBOW            = 30318
 };
 
 uint32 m_auiSpellSummonWeapon[]=
@@ -169,6 +178,19 @@ struct MANGOS_DLL_DECL advisorbase_ai : public ScriptedAI
     bool m_bDoubled_Health;
     uint32 m_uiDelayRes_Timer;
     uint64 m_uiDelayRes_Target;
+
+    void DeleteLegendaryWeapons()
+    {
+        if (!m_pInstance)
+            return;
+
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_WRAP_SLICER);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_INFINITY_BLADE);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_PHASESHIFT_BULWARK);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_DEVASTATION);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_COSMIC_INFUSER);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_NETHERSTAND_LONGBOW);
+    }
 
     void Reset()
     {
@@ -377,6 +399,9 @@ struct MANGOS_DLL_DECL boss_kaelthasAI : public ScriptedAI
         m_auiAdvisorGuid[2] = m_pInstance->GetData64(DATA_CAPERNIAN);
         m_auiAdvisorGuid[3] = m_pInstance->GetData64(DATA_TELONICUS);
 
+        //Detroy Legendary Weapons on event begining
+        DeleteLegendaryWeapons();
+
         if (!m_auiAdvisorGuid[0] || !m_auiAdvisorGuid[1] || !m_auiAdvisorGuid[2] || !m_auiAdvisorGuid[3])
         {
             error_log("SD2: Kael'Thas One or more advisors missing, Skipping Phases 1-3");
@@ -480,6 +505,9 @@ struct MANGOS_DLL_DECL boss_kaelthasAI : public ScriptedAI
 
         if (m_pInstance)
             m_pInstance->SetData(TYPE_KAELTHAS_PHASE, PHASE_6_COMPLETE);
+
+        //Deleting Legendary Weapons on event end
+        DeleteLegendaryWeapons();
 
         for(uint8 i = 0; i < MAX_ADVISORS; ++i)
         {
@@ -724,7 +752,7 @@ struct MANGOS_DLL_DECL boss_kaelthasAI : public ScriptedAI
                             error_log("SD2: Kael'Thas Advisor %u does not exist. Possibly despawned? Incorrectly Killed?", i);
                         else
                         {
-                            if (advisorbase_ai* pAdvisorAI = dynamic_cast<advisorbase_ai*>(pAdvisor->AI()))
+                            if (pTarget && advisorbase_ai* pAdvisorAI = dynamic_cast<advisorbase_ai*>(pAdvisor->AI()))
                                 pAdvisorAI->Revive(pTarget);
                         }
                     }
