@@ -404,6 +404,8 @@ scripts/northrend/nexus/nexus/boss_anomalus.cpp \
 scripts/northrend/nexus/nexus/boss_keristrasza.cpp \
 scripts/northrend/nexus/nexus/boss_ormorok.cpp \
 scripts/northrend/nexus/nexus/boss_telestra.cpp \
+scripts/northrend/nexus/nexus/commander_kolurg.cpp \
+scripts/northrend/nexus/nexus/commander_stoutbeard.cpp \
 scripts/northrend/nexus/nexus/nexus.h \
 scripts/northrend/nexus/nexus/instance_nexus.cpp \
 scripts/northrend/nexus/oculus/oculus.h \
