@@ -41,5 +41,8 @@ class MANGOS_DLL_DECL ScriptedInstance : public InstanceData
 
         //sends completed achievments to all players in instance
         void DoCompleteAchievement(uint32 uiAchievmentId);
+
+		//destroys an item from all players in this instance (encounters like Vashj, Najentus....)
+		void DestroyItemFromAllPlayers(uint32 uiItemId);
 };
 #endif
