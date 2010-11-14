@@ -180,5 +180,15 @@ pkgdata_DATA = \
 	r1862_mangos.sql \
 	r1863_mangos.sql \
 	r1864_mangos.sql \
-	r1864_scriptdev2.sql
+	r1864_scriptdev2.sql \
+	r1865_mangos.sql \
+	r1865_scriptdev2.sql \
+	r1866_scriptdev2.sql \
+	r1868_scriptdev2.sql \
+<<<<<<< HEAD:sql/Updates/Makefile.am
+	r1869_mangos.sql
+=======
+	r1869_mangos.sql \
+	r1871_mangos.sql
+>>>>>>> scriptdev2:sql/Updates/Makefile.am
 
