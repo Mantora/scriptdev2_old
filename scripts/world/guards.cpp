@@ -850,6 +850,86 @@ bool GossipSelect_guard_dalaran(Player* pPlayer, Creature* pCreature, uint32 sen
  * guard_dalaran end
  *******************************************************/
 
+
+/*******************************************************
+ * guard_contested start
+ *******************************************************/
+enum eguard_contested
+{
+	PVP_GUARD_SAY1 = -1000198,
+	PVP_GUARD_SAY2 = -1000199,
+	PVP_GUARD_SAY3 = -1000200
+ 
+};
+
+struct MANGOS_DLL_DECL guard_contested : public guardAI
+{
+    guard_contested(Creature* pCreature) : guardAI(pCreature) {Reset();}
+	
+
+	void Reset()
+    {
+		m_creature->AttackStop();
+		m_creature->DeleteThreatList();
+		m_creature->setFaction(121);
+	}
+
+    void MoveInLineOfSight(Unit* pUnit)
+    {
+        if ( pUnit->isInCombat() && pUnit->isAttackingPlayer())
+        {
+            if(pUnit->GetTypeId() == TYPEID_PLAYER || pUnit->GetOwnerGUID() && GUID_HIPART(pUnit->GetOwnerGUID())==HIGHGUID_PLAYER)
+            {
+				Unit* pVictim = pUnit->getVictim();
+				if(pVictim->GetTypeId() == TYPEID_PLAYER)
+				{
+					m_creature->AddThreat(pUnit, 0.0f);
+					if(Unit* owner = pUnit->GetOwner())
+						m_creature->AddThreat(owner, 0.0f);
+			    	m_creature->Attack(pUnit,true);
+			    	m_creature->setFaction(72);
+
+					DoStartMovement(pUnit);
+                    SpellEntry const *spell = m_creature->reachWithSpellAttack(pUnit);
+                    DoCastSpell(pUnit, spell);
+						
+
+					if(!m_creature->isInCombat())
+					{
+						if (m_creature->GetEntry() == 15184)    //Cenarion Hold Infantry
+						{
+							srand (time(NULL));
+							if (rand()%100 <= 30)
+							{
+								DoScriptText(PVP_GUARD_SAY1,m_creature);
+	                            //DoSay("Taste blade, mongrel!", LANG_UNIVERSAL,NULL);
+		                    }
+			                else if (rand()%100 > 30 && rand()%100 < 50)
+				            {
+								DoScriptText(PVP_GUARD_SAY2,m_creature);
+						        //DoSay("Please tell me that you didn`t just do what I think you just did. Please tell me that I`m not going to have to hurt you...", LANG_UNIVERSAL,NULL);
+							}
+							else if (rand()%100 >= 50)
+							{
+								DoScriptText(PVP_GUARD_SAY3,m_creature);
+								//DoSay("As if we don`t have enough problems, you go and create more!", LANG_UNIVERSAL,NULL);
+							}
+						}
+					}
+                }
+                
+            }
+			m_creature->AttackStop();
+			m_creature->DeleteThreatList();
+			m_creature->setFaction(121);
+        }
+    }
+};
+
+ /*******************************************************
+  * guard_contested end
+  *******************************************************/
+
 CreatureAI* GetAI_guard_shattrath_scryer(Creature* pCreature)
 {
     return new guard_shattrath_scryerAI(pCreature);
