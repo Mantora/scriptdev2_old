@@ -828,6 +828,33 @@
     <ClCompile Include="..\scripts\examples\example_misc.cpp">
       <Filter>scripts\examples</Filter>
     </ClCompile>
+	<ClCompile Include="..\scripts\guards\ancient_of_war.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\archbishop_benedictus.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\g_marcus_jonathan.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\high_fire_mage.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\high_sorcerer_andromath.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\highlord_bolvar_fordragon.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\officers.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\overlord_saurfang.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\guards\thrall.cpp">
+      <Filter>scripts\guards</Filter>
+    </ClCompile>
     <ClCompile Include="..\scripts\kalimdor\ashenvale.cpp">
       <Filter>scripts\kalimdor</Filter>
     </ClCompile>

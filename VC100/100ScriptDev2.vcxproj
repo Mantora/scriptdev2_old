@@ -386,6 +386,15 @@
     <ClCompile Include="..\scripts\examples\example_escort.cpp" />
     <ClCompile Include="..\scripts\examples\example_gossip_codebox.cpp" />
     <ClCompile Include="..\scripts\examples\example_misc.cpp" />
+	<ClCompile Include="..\scripts\guards\ancient_of_war.cpp" />
+	<ClCompile Include="..\scripts\guards\archbishop_benedictus.cpp" />
+	<ClCompile Include="..\scripts\guards\g_marcus_jonathan.cpp" />
+	<ClCompile Include="..\scripts\guards\high_fire_mage.cpp" />
+	<ClCompile Include="..\scripts\guards\high_sorcerer_andromath.cpp" />
+	<ClCompile Include="..\scripts\guards\highlord_bolvar_fordragon.cpp" />
+	<ClCompile Include="..\scripts\guards\officers.cpp" />
+	<ClCompile Include="..\scripts\guards\overlord_saurfang.cpp" />
+	<ClCompile Include="..\scripts\guards\thrall.cpp" />
     <ClCompile Include="..\scripts\kalimdor\ashenvale.cpp" />
     <ClCompile Include="..\scripts\kalimdor\azshara.cpp" />
     <ClCompile Include="..\scripts\kalimdor\azuremyst_isle.cpp" />
