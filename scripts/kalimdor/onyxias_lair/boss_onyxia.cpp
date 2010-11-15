@@ -287,7 +287,7 @@ struct MANGOS_DLL_DECL boss_onyxiaAI : public ScriptedAI
 
         if (m_uiEvadeCheckCooldown < uiDiff)
         {
-            if (m_creature->GetDistance2d(-22,3467f, -214,571f) > 100.0f)
+            if (m_creature->GetDistance2d(-22.3467f, -214.571f) > 100.0f)
                 EnterEvadeMode();
             m_uiEvadeCheckCooldown = 2000;
         }
