@@ -17,7 +17,7 @@
 /* ScriptData
 SDName: Borean_Tundra
 SD%Complete: 100
-SDComment: Quest support: 11570, 11590, 11692, 11676, 11708, 11881, 11919, 11940, 11961. Taxi vendors. 
+SDComment: Quest support: 11570, 11590, 11608, 11692, 11676, 11708, 11881, 11919, 11940, 11961. Taxi vendors. 
 SDCategory: Borean Tundra
 EndScriptData */
 
@@ -34,6 +34,7 @@ npc_nexus_drake
 go_scourge_cage
 npc_beryl_sorcerer
 npc_fezzix_geartwist
+npc_nerubar_sinkhole
 EndContentData */
 
 #include "precompiled.h"
@@ -778,6 +779,78 @@ CreatureAI* GetAI_npc_fezzix_geartwist(Creature* pCreature)
     return new npc_fezzix_geartwistAI(pCreature);
 }
 
+/*######
+## npc_nerubar_sinkhole
+######*/
+
+enum nerubar_sinkhole
+{
+	SPELL_SEAFORIUM_DEPTH_CHARGE_EXPLOSION	= 45502,	//spell doesn't effect Player
+	SPELL_EXPLOSION_EFFECT					= 46419,	//find the right spell or fix first, this is only temp
+
+	GO_RUBBLE								= 187669,
+
+	NPC_SEAFORIUM_DEPTH_CHARGE				= 25401
+};
+
+struct MANGOS_DLL_DECL npc_nerubar_sinkholeAI : public ScriptedAI
+{
+    npc_nerubar_sinkholeAI(Creature* pCreature) : ScriptedAI(pCreature) {Reset();}
+
+	uint32 BombTimer;
+	uint32 m_uiEventPhase;
+	float x,y,z;
+
+    void Reset()
+    {
+		BombTimer = urand(5000,10000);
+		m_uiEventPhase = 1;
+		x=y=z=0;
+    }
+
+	void UpdateAI(const uint32 diff)
+	{
+		Creature* pChargeBundle = m_creature->GetClosestCreatureWithEntry(m_creature,NPC_SEAFORIUM_DEPTH_CHARGE,20.0f);
+
+		if(pChargeBundle)
+		{
+	        if (BombTimer < diff)
+	        {
+				pChargeBundle->CastSpell(pChargeBundle, SPELL_EXPLOSION_EFFECT, true);
+
+				x = m_creature->GetPositionX();
+				y = m_creature->GetPositionY();
+				z = m_creature->GetPositionZ();
+						
+				pChargeBundle->CastSpell(pChargeBundle, SPELL_SEAFORIUM_DEPTH_CHARGE_EXPLOSION, true);
+				
+				m_creature->GetMotionMaster()->MoveTargetedHome();
+
+				pChargeBundle->setDeathState(JUST_DIED);
+				pChargeBundle->RemoveFromWorld();
+
+				GameObject* pRubble = pChargeBundle->SummonGameobject(GO_RUBBLE, x, y, z, 0, 20000);
+				pRubble->SetGoType(GAMEOBJECT_TYPE_GENERIC);
+				
+				Unit* pPlayer = pChargeBundle->GetCharmerOrOwnerPlayerOrPlayerItself();
+				if (pPlayer)
+				{
+					((Player*)pPlayer)->KilledMonsterCredit(m_creature->GetEntry(),m_creature->GetGUID());
+				}
+
+				m_creature->GetMotionMaster()->MoveTargetedHome();
+
+				Reset();
+			}else BombTimer -= diff;
+		}
+	}
+};
+
+CreatureAI* GetAI_npc_nerubar_sinkhole(Creature* pCreature)
+{
+    return new npc_nerubar_sinkholeAI(pCreature);
+}
+
 void AddSC_borean_tundra()
 {
     Script *newscript;
@@ -846,5 +919,10 @@ void AddSC_borean_tundra()
 	newscript = new Script;
 	newscript->Name = "npc_fezzix_geartwist";
 	newscript->GetAI = &GetAI_npc_fezzix_geartwist;
+	newscript->RegisterSelf();
+
+	newscript = new Script;
+	newscript->Name = "npc_nerubar_sinkhole";
+	newscript->GetAI = &GetAI_npc_nerubar_sinkhole;
 	newscript->RegisterSelf();
 }
