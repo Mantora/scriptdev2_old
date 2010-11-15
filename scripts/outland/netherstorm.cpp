@@ -765,10 +765,10 @@ enum
     NPC_BOT_SPECIALIST_ALLEY    = 19578,
     GO_DRAENEI_MACHINE          = 183771,
 
-    SAY_START                   = -1667594,
-    SAY_ALLEY_FAREWELL          = -1667595,
-    SAY_CONTINUE                = -1667596,
-    SAY_ALLEY_FINISH            = -1667597
+    SAY_START                   = -1000621,
+    SAY_ALLEY_FAREWELL          = -1000622,
+    SAY_CONTINUE                = -1000623,
+    SAY_ALLEY_FINISH            = -1000624
 };
 
 struct MANGOS_DLL_DECL npc_maxx_a_million_escortAI : public npc_escortAI
@@ -788,12 +788,16 @@ struct MANGOS_DLL_DECL npc_maxx_a_million_escortAI : public npc_escortAI
             m_uiSubEventTimer = 0;
             m_uiAlleyGUID = 0;
             m_uiLastDraeneiMachineGUID = 0;
+
             // Reset fields, that were changed on escort-start
             m_creature->HandleEmote(EMOTE_STATE_STUN);
-            m_creature->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE | UNIT_FLAG_PASSIVE);
-            // Faction is reseted with npc_exortAI::JustRespawned();
+            // Faction is reset with npc_escortAI::JustRespawned();
+
+            // Unclear how these flags are set/removed in relation to the faction change at start of escort.
+            // Workaround here, so that the flags are removed during escort (and while not in evade mode)
+            m_creature->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE + UNIT_FLAG_PASSIVE);
         }
-        else                                                // Needed, because this flag is re-applied within mangos
+        else
             m_creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
     }
 
@@ -802,7 +806,8 @@ struct MANGOS_DLL_DECL npc_maxx_a_million_escortAI : public npc_escortAI
         switch (uiPoint)
         {
             case 1:
-                m_creature->SetFacingTo(5.427974f);
+                // turn 90 degrees , towards doorway.
+                m_creature->SetFacingTo(m_creature->GetOrientation() + (M_PI_F/2));
                 DoScriptText(SAY_START, m_creature);
                 m_uiSubEventTimer = 3000;
                 m_uiSubEvent = 1;
@@ -819,17 +824,15 @@ struct MANGOS_DLL_DECL npc_maxx_a_million_escortAI : public npc_escortAI
                 }
                 else
                     m_uiLastDraeneiMachineGUID = 0;
+
                 break;
             case 36:
                 if (Player* pPlayer = GetPlayerForEscort())
                     pPlayer->GroupEventHappens(QUEST_MARK_V_IS_ALIVE, m_creature);
+
                 if (Creature* pAlley = m_creature->GetMap()->GetCreature(m_uiAlleyGUID))
                     DoScriptText(SAY_ALLEY_FINISH, pAlley);
-                break;
-            case 37:
-                // A bit of a workaround, but this mob shouldn't respawn at all, but to properly reset despawning is cleanest solution
-                m_creature->ForcedDespawn();
-                m_creature->Respawn();
+
                 break;
         }
     }
@@ -873,6 +876,7 @@ struct MANGOS_DLL_DECL npc_maxx_a_million_escortAI : public npc_escortAI
                         case 3:                             // Despawn machine after 2s
                             if (GameObject* pMachine = m_creature->GetMap()->GetGameObject(m_uiLastDraeneiMachineGUID))
                                 pMachine->Use(m_creature);
+
                             m_uiLastDraeneiMachineGUID = 0;
                             m_uiSubEventTimer = 0;
                             m_uiSubEvent = 0;
@@ -906,10 +910,10 @@ bool QuestAccept_npc_maxx_a_million(Player* pPlayer, Creature* pCreature, const 
             pCreature->setFaction(FACTION_ESCORT_N_NEUTRAL_PASSIVE);
             // Set emote-state to 0 (is EMOTE_STATE_STUN by default)
             pCreature->HandleEmote(EMOTE_ONESHOT_NONE);
-            // Remove Unit-field flags
-            pCreature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE | UNIT_FLAG_PASSIVE);
+            // Remove unit_flags (see comment in JustReachedHome)
+            pCreature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE + UNIT_FLAG_PASSIVE);
 
-            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest, true);
         }
     }
     return true;
