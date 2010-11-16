@@ -116,6 +116,18 @@ struct MANGOS_DLL_DECL boss_colossusAI : public ScriptedAI
         }
     }
 
+	void Aggro(Unit* pWho)
+    {
+        if (m_pInstance)
+            m_pInstance->SetData(TYPE_COLOSSUS, IN_PROGRESS);
+    }
+
+	void JustDied(Unit* pKiller)
+    {
+        if (m_pInstance)
+            m_pInstance->SetData(TYPE_COLOSSUS, DONE);
+    }
+
     void UpdateAI(const uint32 uiDiff)
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
