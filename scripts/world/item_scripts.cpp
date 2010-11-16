@@ -253,11 +253,11 @@ enum
 
 bool ItemUse_item_complimentary_brewfest_sampler(Player* pPlayer, Item* pItem, const SpellCastTargets &pTargets)
 {
-	Unit* pTarget = Unit::GetUnit(*pPlayer, pPlayer->GetTargetGUID());
+	Unit* pTarget = pPlayer->GetMap()->GetUnit(ObjectGuid(pPlayer->GetTargetGuid()));
 	if (pTarget)
 	{
 		if ((pTarget->GetEntry() == NPC_SCOUT) && ((pPlayer->GetQuestStatus(QUEST_CHUG_AND_CHUCK_A) == QUEST_STATUS_INCOMPLETE) || (pPlayer->GetQuestStatus(QUEST_CHUG_AND_CHUCK_H) == QUEST_STATUS_INCOMPLETE)))
-			pPlayer->KilledMonsterCredit(NPC_SCOUT,0);
+			pPlayer->KilledMonsterCredit(NPC_SCOUT);
 	}
 	pPlayer->CastSpell(pPlayer, 42436, false);
 	return true;

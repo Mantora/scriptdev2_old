@@ -409,7 +409,7 @@ struct MANGOS_DLL_DECL boss_alarAI : public ScriptedAI
                     for(i = m_threatlist.begin(); i != m_threatlist.end(); ++i)
                     {
                         Unit* pUnit = NULL;
-                        pUnit = Unit::GetUnit((*m_creature), (*i)->getUnitGuid());
+                        pUnit = m_creature->GetMap()->GetUnit(ObjectGuid((*i)->getUnitGuid()));
                         if (pUnit)
                             if (m_creature->IsWithinDistInMap(pUnit, 5))
                             {                        
@@ -578,7 +578,7 @@ struct MANGOS_DLL_DECL mob_ember_of_alarAI : public ScriptedAI
             if (pInstance->GetData(DATA_ALAREVENT) == 2)
             {
                 Unit* Alar = NULL;
-                Alar = Unit::GetUnit((*m_creature), pInstance->GetData64(DATA_ALAR));
+                Alar = m_creature->GetMap()->GetUnit(ObjectGuid(pInstance->GetData64(DATA_ALAR)));
                 if (Alar)
                 {
                     int AlarHealth = Alar->GetHealth() - Alar->GetMaxHealth()*0.03;
@@ -595,7 +595,7 @@ struct MANGOS_DLL_DECL mob_ember_of_alarAI : public ScriptedAI
     {
         if (Die) {
             m_creature->SetHealth(0);
-            m_creature->setDeathState(JUST_DIED);
+            m_creature->SetDeathState(JUST_DIED);
         }
 
         DoMeleeAttackIfReady();

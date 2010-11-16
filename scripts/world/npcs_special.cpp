@@ -2198,7 +2198,7 @@ struct MANGOS_DLL_DECL mob_risen_ghoulAI : public ScriptedAI
         m_bIsSpawned = false;
         fDist = (m_creature->GetEntry() == ENTRY_AOTD_GHOUL) ? float(urand(1, 5) ) : PET_FOLLOW_DIST;
         fAngle = PET_FOLLOW_ANGLE;
-        m_uiCreatorGUID = m_creature->GetCreatorGUID();
+        m_uiCreatorGUID = m_creature->GetCreatorGuid();
         if (Unit* pOwner = m_creature->GetMap()->GetUnit(m_uiCreatorGUID) )
             fAngle = m_creature->GetAngle(pOwner);
 
@@ -2207,7 +2207,7 @@ struct MANGOS_DLL_DECL mob_risen_ghoulAI : public ScriptedAI
 
     Unit* pTarget;
 
-    uint64 m_uiCreatorGUID;
+    ObjectGuid m_uiCreatorGUID;
     uint64 m_uiTargetGUID;
 
     uint32 m_uiReadyTimer;
@@ -2699,7 +2699,7 @@ bool GossipSelect_npc_metzen(Player* pPlayer, Creature* pCreature, uint32 uiSend
 	{
 		if( (pPlayer->GetQuestStatus(QUEST_METZEN_ALLIANCE) == QUEST_STATUS_INCOMPLETE) || (pPlayer->GetQuestStatus(QUEST_METZEN_HORDE) == QUEST_STATUS_INCOMPLETE) )
 		{
-			pPlayer->KilledMonsterCredit(METZEN_KILL_CREDIT, 0);
+			pPlayer->KilledMonsterCredit(METZEN_KILL_CREDIT);
 			pCreature->CastSpell(pCreature, SPELL_REINDEER_DUST, true);
 		}		
 	}
@@ -2913,7 +2913,7 @@ struct MANGOS_DLL_DECL npc_brewfest_delivery_bunnyAI : public ScriptedAI
 			if (((Player*)pUnit)->HasItemCount(ITEM_PORTABLE_BREWFEST_KEG, 1))
 			{
 				((Player*)pUnit)->CastSpell(m_creature,SPELL_BREWFEST_THROW_KEG_PLAYER,false);
-				((Player*)pUnit)->KilledMonsterCredit(24337,0);
+				((Player*)pUnit)->KilledMonsterCredit(24337);
 				((Player*)pUnit)->DestroyItemCount(ITEM_PORTABLE_BREWFEST_KEG,1,true);
 			};
 		};

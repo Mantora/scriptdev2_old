@@ -72,7 +72,7 @@ struct MANGOS_DLL_DECL npc_lazy_peonAI : public ScriptedAI
         {
             if(((Player*)pCaster)->GetQuestStatus(5441) == QUEST_STATUS_INCOMPLETE && m_creature->HasAura(SPELL_PEON_SLEEPING))
             {
-                ((Player*)pCaster)->KilledMonsterCredit(10556,0);
+                ((Player*)pCaster)->KilledMonsterCredit(10556);
 				m_creature->RemoveAurasDueToSpell(SPELL_PEON_SLEEPING);
 				
 				Emote_Timer = 120000;

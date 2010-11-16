@@ -42,11 +42,11 @@ struct MANGOS_DLL_DECL boss_eckAI : public ScriptedAI
 {
     boss_eckAI(Creature* pCreature) : ScriptedAI(pCreature)
     {
-        m_pInstance = (instance_gundrak*)pCreature->GetInstanceData();
+        m_pInstance = (ScriptedInstance*)pCreature->GetInstanceData();
         Reset();
     }
 
-    instance_gundrak* m_pInstance;
+    ScriptedInstance* m_pInstance;
     bool m_bIsBerserk;
 
     uint32 m_uiSpitTimer;

@@ -1069,7 +1069,7 @@ enum
     QUEST_FOLLOW_ONE = 400001,
 };
 
-#define SAY_END			-2500020
+#define SAY_END2		-2500020
 #define WP_START		-2500021
 #define WP_MIDDLE		-2500022
 #define WP_INFO			-2500023
@@ -1108,7 +1108,7 @@ struct MANGOS_DLL_DECL event_npc_follow_oneAI : public npc_escortAI
                 break;
 
             case 11:
-                DoScriptText(SAY_END, m_creature);
+                DoScriptText(SAY_END2, m_creature);
                 break;
 
             case 12:
@@ -1125,7 +1125,7 @@ bool QuestAccept_event_npc_follow_one(Player* pPlayer, Creature* pCreature, cons
     {
         if(event_npc_follow_oneAI* pEscortAI = dynamic_cast<event_npc_follow_oneAI*>(pCreature->AI()))
         {
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
         }
     }
     return true;
@@ -1146,7 +1146,7 @@ enum
 };
 
 #define SAY_MIDDLE_ESKORT	-2500025
-#define SAY_ENDE			-2500024
+#define SAY_ENDE2			-2500024
 
 struct MANGOS_DLL_DECL event_npc_follow_twoAI : public npc_escortAI
 {
@@ -1175,7 +1175,7 @@ struct MANGOS_DLL_DECL event_npc_follow_twoAI : public npc_escortAI
             case 16:
                 pPlayer->GroupEventHappens(QUEST_FOLLOW_TWO, m_creature);
                 m_creature->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_QUESTGIVER);
-                DoScriptText(SAY_ENDE, m_creature);
+                DoScriptText(SAY_ENDE2, m_creature);
                 break;
         }
     }
@@ -1189,7 +1189,7 @@ bool QuestAccept_event_npc_follow_two(Player* pPlayer, Creature* pCreature, cons
     {
         if(event_npc_follow_twoAI* pEscortAI = dynamic_cast<event_npc_follow_twoAI*>(pCreature->AI()))
         {
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
         }
     }
     return true;

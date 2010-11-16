@@ -517,7 +517,7 @@ struct MANGOS_DLL_DECL npc_geezleAI : public ScriptedAI
 
 	uint32 NextStep(uint32 Step)
     {
-		Unit* pSpark = Unit::GetUnit(*m_creature, SparkGUID);
+		Unit* pSpark = m_creature->GetMap()->GetUnit(ObjectGuid(SparkGUID));
 
         switch(Step)
         {
@@ -633,7 +633,7 @@ struct MANGOS_DLL_DECL npc_ancestor_akidaAI : public npc_escortAI
 		if(!(pPlayer->GetQuestStatus(QUEST_TOTEM_OF_COO) == QUEST_STATUS_INCOMPLETE))
 		{
 			m_creature->StopMoving();
-			m_creature->setDeathState(JUST_DIED);
+			m_creature->SetDeathState(JUST_DIED);
 			m_creature->RemoveCorpse();
 			return;
 		}
@@ -646,7 +646,7 @@ struct MANGOS_DLL_DECL npc_ancestor_akidaAI : public npc_escortAI
             case 10:
                 pPlayer->GroupEventHappens(QUEST_TOTEM_OF_COO, m_creature);
 				m_creature->CastSpell(m_creature,SPELL_DISAPPEAR_ANCESTOR,false);
-				m_creature->setDeathState(JUST_DIED);
+				m_creature->SetDeathState(JUST_DIED);
 				m_creature->RemoveCorpse();
                 break;
         }
@@ -666,7 +666,7 @@ bool QuestAccept_npc_totem_of_akida(Player* pPlayer, Creature* pCreature, const 
         if (npc_ancestor_akidaAI* pEscortAI = dynamic_cast<npc_ancestor_akidaAI*>(npcAkida->AI()))
 		{
 			npcAkida->CastSpell(npcAkida,SPELL_APPEAR_ANCESTOR,false);
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
 		}
 	}
     return true;
@@ -712,7 +712,7 @@ struct MANGOS_DLL_DECL npc_ancestor_cooAI : public npc_escortAI
 		if(!(pPlayer->GetQuestStatus(QUEST_TOTEM_OF_TIKTI) == QUEST_STATUS_INCOMPLETE))
 		{
 			m_creature->StopMoving();
-			m_creature->setDeathState(JUST_DIED);
+			m_creature->SetDeathState(JUST_DIED);
 			m_creature->RemoveCorpse();
 			return;
 		}
@@ -763,7 +763,7 @@ struct MANGOS_DLL_DECL npc_ancestor_cooAI : public npc_escortAI
 						Step++;
 						break;
 					case 4:
-						m_creature->setDeathState(JUST_DIED);
+						m_creature->SetDeathState(JUST_DIED);
 						m_creature->RemoveCorpse();
 						break;
 				}
@@ -786,7 +786,7 @@ bool QuestAccept_npc_totem_of_coo(Player* pPlayer, Creature* pCreature, const Qu
 		if (npc_ancestor_cooAI* pEscortAI = dynamic_cast<npc_ancestor_cooAI*>(npcCoo->AI()))
 		{
 			npcCoo->CastSpell(npcCoo,SPELL_APPEAR_ANCESTOR,false);
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
 		}
 	}
     return true;
@@ -837,7 +837,7 @@ struct MANGOS_DLL_DECL npc_ancestor_yorAI : public npc_escortAI
 		if(!(pPlayer->GetQuestStatus(QUEST_TOTEM_OF_VARK) == QUEST_STATUS_INCOMPLETE))
 		{
 			m_creature->StopMoving();
-			m_creature->setDeathState(JUST_DIED);
+			m_creature->SetDeathState(JUST_DIED);
 			m_creature->RemoveCorpse();
 			return;
 		}
@@ -851,7 +851,7 @@ struct MANGOS_DLL_DECL npc_ancestor_yorAI : public npc_escortAI
             case 24:
                 pPlayer->GroupEventHappens(QUEST_TOTEM_OF_VARK, m_creature);
 				m_creature->CastSpell(m_creature,SPELL_DISAPPEAR_ANCESTOR,false);
-				m_creature->setDeathState(JUST_DIED);
+				m_creature->SetDeathState(JUST_DIED);
 				m_creature->RemoveCorpse();
                 break;
         }
@@ -917,7 +917,7 @@ bool QuestAccept_npc_totem_of_yor(Player* pPlayer, Creature* pCreature, const Qu
 		{
 			npcYor->CastSpell(npcYor,SPELL_APPEAR_ANCESTOR,false);
 			DoScriptText(YOR_SAY_START, npcYor, pPlayer);
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
 		}
 	}
     return true;
@@ -966,7 +966,7 @@ struct MANGOS_DLL_DECL npc_ancestor_tiktiAI : public npc_escortAI
 		if(!(pPlayer->GetQuestStatus(QUEST_TOTEM_OF_YOR) == QUEST_STATUS_INCOMPLETE))
 		{
 			m_creature->StopMoving();
-			m_creature->setDeathState(JUST_DIED);
+			m_creature->SetDeathState(JUST_DIED);
 			m_creature->RemoveCorpse();
 			return;
 		}
@@ -982,7 +982,7 @@ struct MANGOS_DLL_DECL npc_ancestor_tiktiAI : public npc_escortAI
 				//m_creature->StopMoving();
 				break;
 			case 3:
-				m_creature->setDeathState(JUST_DIED);
+				m_creature->SetDeathState(JUST_DIED);
 				m_creature->RemoveCorpse();
 				break;
         }
@@ -1045,7 +1045,7 @@ bool QuestAccept_npc_totem_of_tikti(Player* pPlayer, Creature* pCreature, const 
         if (npc_ancestor_tiktiAI* pEscortAI = dynamic_cast<npc_ancestor_tiktiAI*>(npcTikti->AI()))
 		{
 			npcTikti->CastSpell(npcTikti,SPELL_APPEAR_ANCESTOR,false);
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
 		}
 	}
     return true;

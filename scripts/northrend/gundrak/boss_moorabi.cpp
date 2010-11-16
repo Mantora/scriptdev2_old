@@ -61,12 +61,12 @@ struct MANGOS_DLL_DECL boss_moorabiAI : public ScriptedAI
 {
     boss_moorabiAI(Creature* pCreature) : ScriptedAI(pCreature)
     {
-        m_pInstance = (instance_gundrak*)pCreature->GetInstanceData();
+        m_pInstance = (ScriptedInstance*)pCreature->GetInstanceData();
         m_bIsRegularMode = pCreature->GetMap()->IsRegularDifficulty();
         Reset();
     }
 
-    instance_gundrak* m_pInstance;
+    ScriptedInstance* m_pInstance;
     bool m_bIsRegularMode;
 
 

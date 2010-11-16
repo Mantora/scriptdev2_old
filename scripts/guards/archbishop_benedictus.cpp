@@ -7,7 +7,6 @@ by Myav
 */
 
 #include "precompiled.h"
-#include "../../base/simple_ai.h"
 
 #define GENERIC_CREATURE_COOLDOWN 5000
 
@@ -262,123 +261,12 @@ void UpdateAI(const uint32 diff)
 };
 CreatureAI* GetAI_cathedral_of_light(Creature* pCreature)
 {
-    SimpleAI* ai = new SimpleAI (pCreature);
-
-    uint32 CreatureID = pCreature->GetEntry();
-
-    ai->m_creature->ApplySpellImmune(0, IMMUNITY_EFFECT, SPELL_EFFECT_INTERRUPT_CAST, true);
-    ai->m_creature->ApplySpellImmune(0, IMMUNITY_MECHANIC, MECHANIC_CHARM, true);
-
-    switch (CreatureID) 
-    {
-        //Duthorian Rall
-    case 6171: 
-        ai->Spell[0].Enabled = true;               
-        ai->Spell[0].Spell_Id = 48952;      //Holy Shield 6   
-        ai->Spell[0].Cooldown = 30000;                 
-        ai->Spell[0].First_Cast = 500;             
-        ai->Spell[0].Cast_Target_Type = CAST_SELF;  
-
-        ai->Spell[1].Enabled = true;               
-        ai->Spell[1].Spell_Id = 10308;      //Hammer of Justice 4     
-        ai->Spell[1].Cooldown = 45000;                 
-        ai->Spell[1].First_Cast = 10000;             
-        ai->Spell[1].Cast_Target_Type = CAST_HOSTILE_TARGET;  
-
-        ai->Spell[2].Enabled = true;               
-        ai->Spell[2].Spell_Id = 48934;      //Greater Blessing of Might 5    
-        ai->Spell[2].Cooldown = 120000;                 
-        ai->Spell[2].First_Cast = 5000;             
-        ai->Spell[2].Cast_Target_Type = CAST_SELF;  
-
-        ai->Spell[3].Enabled = true;               
-        ai->Spell[3].Spell_Id = 48825;      //Holy Shock 7    
-        ai->Spell[3].Cooldown = 20000;                 
-        ai->Spell[3].First_Cast = 15000;             
-        ai->Spell[3].Cast_Target_Type = CAST_HOSTILE_TARGET;  
-
-        ai->Spell[4].Enabled = true;               
-        ai->Spell[4].Spell_Id = 48782;      //Holy Light 13   
-        ai->Spell[4].Cooldown = 15000;                 
-        ai->Spell[4].First_Cast = 20000;             
-        ai->Spell[4].Cast_Target_Type = CAST_SELF;
-
-        ai->Spell[5].Enabled = true;               
-        ai->Spell[5].Spell_Id = 48801;      //Exorcism 9    
-        ai->Spell[5].Cooldown = 15000;                 
-        ai->Spell[5].First_Cast = 30000;             
-        ai->Spell[5].Cast_Target_Type = CAST_HOSTILE_TARGET;
-        break;
-
-        //High Priestess Laurena
-    case 376: 
-        ai->Spell[0].Enabled = true;               
-        ai->Spell[0].Spell_Id = 48168;      //Inner Fire 9    
-        ai->Spell[0].Cooldown = 120000;                 
-        ai->Spell[0].First_Cast = 500;             
-        ai->Spell[0].Cast_Target_Type = CAST_SELF;  
-
-        ai->Spell[1].Enabled = true;               
-        ai->Spell[1].Spell_Id = 48078;      //Holy Nova  9
-        ai->Spell[1].Cooldown = 30000;                 
-        ai->Spell[1].First_Cast = 10000;             
-        ai->Spell[1].Cast_Target_Type = CAST_HOSTILE_TARGET;  
-
-        ai->Spell[2].Enabled = true;               
-        ai->Spell[2].Spell_Id = 48066;      //Power Word: Shield 14    
-        ai->Spell[2].Cooldown = 15000;                 
-        ai->Spell[2].First_Cast = 5000;             
-        ai->Spell[2].Cast_Target_Type = CAST_SELF;  
-
-        ai->Spell[3].Enabled = true;               
-        ai->Spell[3].Spell_Id = 48123;      //Smite   12
-        ai->Spell[3].Cooldown = 20000;                 
-        ai->Spell[3].First_Cast = 15000;             
-        ai->Spell[3].Cast_Target_Type = CAST_HOSTILE_TARGET;  
-
-        ai->Spell[4].Enabled = true;               
-        ai->Spell[4].Spell_Id = 48089;      //Circle of Healing 7  
-        ai->Spell[4].Cooldown = 15000;                 
-        ai->Spell[4].First_Cast = 20000;             
-        ai->Spell[4].Cast_Target_Type = CAST_SELF;
-
-        ai->Spell[5].Enabled = true;               
-        ai->Spell[5].Spell_Id = 48068;      //Renew   14
-        ai->Spell[5].Cooldown = 25000;                 
-        ai->Spell[5].First_Cast = 25000;             
-        ai->Spell[5].Cast_Target_Type = CAST_SELF;
-
-        ai->Spell[6].Enabled = true;               
-        ai->Spell[6].Spell_Id = 48063;      //Greater Heal 9     
-        ai->Spell[6].Cooldown = 15000;                 
-        ai->Spell[6].First_Cast = 30000;             
-        ai->Spell[6].Cast_Target_Type = CAST_SELF;
-
-        ai->Spell[7].Enabled = true;               
-        ai->Spell[7].Spell_Id = 48072;      //Prayer of Healing 7    
-        ai->Spell[7].Cooldown = 25000;                 
-        ai->Spell[7].First_Cast = 35000;             
-        ai->Spell[7].Cast_Target_Type = CAST_SELF;
-        break;
-    }
-
-    ai->Reset();
-
-    return ai;
-}
-CreatureAI* GetAI_archbishop_benedictus(Creature* pCreature)
-{
     return new archbishop_benedictusAI (pCreature);
 }
 
 void AddSC_archbishop_benedictus()
 {   
     Script *newscript;
-
-    newscript = new Script;
-    newscript->Name = "archbishop_benedictus";
-    newscript->GetAI = &GetAI_archbishop_benedictus;
-    newscript->RegisterSelf();
 
     newscript = new Script;
     newscript->Name = "cathedral_of_light";

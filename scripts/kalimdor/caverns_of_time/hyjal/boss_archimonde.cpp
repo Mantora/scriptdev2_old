@@ -148,7 +148,7 @@ struct MANGOS_DLL_DECL mob_doomfireAI : public Scripted_NoMovementAI
     {
         if(FireTimer < diff)
         {
-            Unit* Archimonde = Unit::GetUnit((*m_creature), ArchimondeGUID);
+            Unit* Archimonde = m_creature->GetMap()->GetUnit(ObjectGuid(ArchimondeGUID));
 
             if (!Archimonde)
                 return;
@@ -156,7 +156,7 @@ struct MANGOS_DLL_DECL mob_doomfireAI : public Scripted_NoMovementAI
             std::list<HostileReference *> t_list = Archimonde->getThreatManager().getThreatList();
             for(std::list<HostileReference *>::iterator itr = t_list.begin(); itr!= t_list.end(); ++itr)
             {
-                if(Unit *target = Unit::GetUnit(*m_creature, (*itr)->getUnitGuid()))
+                if(Unit *target = m_creature->GetMap()->GetUnit(ObjectGuid((*itr)->getUnitGuid())))
                     if(target && target->GetTypeId() == TYPEID_PLAYER)
                     {
                         if(m_creature->IsWithinDistInMap(target, 3))
@@ -408,8 +408,8 @@ struct MANGOS_DLL_DECL boss_archimondeAI : public ScriptedAI
         if(m_creature->getVictim())
             DoCast(m_creature->getVictim(), SoulChargeType);
 
-		--SoulChargeCount;
-		SoulChargeTimer = urand(2000, 30000);
+		//--SoulChargeCount;
+		//SoulChargeTimer = urand(2000, 30000);
      }
 
 

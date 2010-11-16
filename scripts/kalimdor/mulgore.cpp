@@ -217,12 +217,12 @@ struct MANGOS_DLL_DECL npc_plains_visionAI : public npc_escortAI
         switch(uiPointId)
         {
 			case 50:
-				if (Unit* pUnit = Unit::GetUnit(*m_creature,playerGUID))
+				if (Unit* pUnit = m_creature->GetMap()->GetUnit(ObjectGuid(playerGUID)))
 				{
 					if(pUnit->GetTypeId() == TYPEID_PLAYER)
 						((Player*)pUnit)->GroupEventHappens(QUEST_RITE_OF_VISION,m_creature);
 				}
-				m_creature->setDeathState(JUST_DIED);
+				m_creature->SetDeathState(JUST_DIED);
 				m_creature->RemoveCorpse();
                 break;
         }

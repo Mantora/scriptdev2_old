@@ -826,7 +826,7 @@ struct MANGOS_DLL_DECL npc_nerubar_sinkholeAI : public ScriptedAI
 				
 				m_creature->GetMotionMaster()->MoveTargetedHome();
 
-				pChargeBundle->setDeathState(JUST_DIED);
+				pChargeBundle->SetDeathState(JUST_DIED);
 				pChargeBundle->RemoveFromWorld();
 
 				GameObject* pRubble = pChargeBundle->SummonGameobject(GO_RUBBLE, x, y, z, 0, 20000);

@@ -265,18 +265,18 @@ enum{
 };
 
 #define GOSSIP_TEXT_ARENA					"Arena"
-#define GOSSIP_TEXT_BARBER					"Barbier"
+#define GOSSIP_TEXT_BARBER_GER				"Barbier"
 #define GOSSIP_TEXT_CAPITAL_PORTALS			"Portale zu den Hauptstädten"
 #define GOSSIP_TEXT_FLIGHT_MASTER			"Den Flugmeister"
 #define GOSSIP_TEXT_LOCKSMITH				"Schlosser"
 #define GOSSIP_TEXT_POINTS_OF_INTEREST		"Sehenswürdigkeiten"
 #define GOSSIP_TEXT_ACTION_HOUSE			"Auktionshaus"
-#define GOSSIP_TEXT_BANK					"Die Bank"
+#define GOSSIP_TEXT_BANK_GER				"Die Bank"
 #define GOSSIP_TEXT_BATTLEMASTERS			"Kampfmeister"
-#define GOSSIP_TEXT_GUILDMASTER				"Gildenmeister"
-#define GOSSIP_TEXT_INN						"Gasthaus"
-#define GOSSIP_TEXT_MAILBOX					"Einen Briefkasten"
-#define GOSSIP_TEXT_STABLEMASTER			"Der Stallmeister"
+#define GOSSIP_TEXT_GUILDMASTER_GER			"Gildenmeister"
+#define GOSSIP_TEXT_INN_GER					"Gasthaus"
+#define GOSSIP_TEXT_MAILBOX_GER				"Einen Briefkasten"
+#define GOSSIP_TEXT_STABLEMASTER_GER		"Der Stallmeister"
 #define GOSSIP_TEXT_TRAINERS				"Lehrer"
 #define GOSSIP_TEXT_VENDOR					"Verkäufer"
 
@@ -321,7 +321,7 @@ enum{
 #define GOSSIP_TEXT_P_S_A_E_M				"Tierbedarf & exotische Reittiere"
 #define GOSSIP_TEXT_P_P_A_C					"Kuchen, Gebäck & Torten"
 #define GOSSIP_TEXT_R_A_M_G					"Reagenzien & magischen Gegenstände"
-#define GOSSIP_TEXT_T						"Spielzeug"
+#define GOSSIP_TEXT_T_GER					"Spielzeug"
 #define GOSSIP_TEXT_T_S						"Handwerksbedarf"
 #define GOSSIP_TEXT_T_R_A_O_I				"Schmuckstücke, Relikte & Schildhandgegenstände"
 #define GOSSIP_TEXT_W						"Waffen"
@@ -356,17 +356,17 @@ bool GossipHello_guard_dalaran(Player* pPlayer, Creature* pCreature)
 {
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_ARENA				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_ACTION_HOUSE			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 2);
-	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_BANK					, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 3);
-    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_BARBER				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 4);
+	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_BANK_GER				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 3);
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_BARBER_GER			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 4);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_BATTLEMASTERS		, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 5);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_CAPITAL_PORTALS		, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 6);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_FLIGHT_MASTER		, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 7);
-	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_GUILDMASTER			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 8);
-	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_INN					, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 9);
+	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_GUILDMASTER_GER		, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 8);
+	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_INN_GER				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 9);
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_LOCKSMITH			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 10);
-	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_MAILBOX				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 11);
+	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_MAILBOX_GER			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 11);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_POINTS_OF_INTEREST	, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 12);
-    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_STABLEMASTER			, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 13);
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_STABLEMASTER_GER		, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 13);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_TRAINERS				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 14);
 	pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_VENDOR				, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 15);
     pPlayer->SEND_GOSSIP_MENU(14014, pCreature->GetGUID());
@@ -483,7 +483,7 @@ void SendDefaultMenu_guard_dalaran(Player* pPlayer, Creature* pCreature, uint32 
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_P_S_A_E_M, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 8);
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_P_P_A_C	, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 9);
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_R_A_M_G	, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 10);
-			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_T		, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 11);
+			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_T_GER	, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 11);
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_T_S		, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 12);
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_T_R_A_O_I, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 13);
 			pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, GOSSIP_TEXT_W		, GOSSIP_SENDER_VENDORS, GOSSIP_ACTION_INFO_DEF + 14);
@@ -615,7 +615,7 @@ void SendTrainersMenu_guard_dalaran(Player* pPlayer, Creature* pCreature, uint32
 	switch(action)
 	{
 		case GOSSIP_ACTION_INFO_DEF + 1:
-			pPlayer->SEND_POI(5807.69f, 586.88, 7, 6, 0, "Der Magierlehrer von Dalaran");
+			pPlayer->SEND_POI(5807.69f, 586.88f, 7, 6, 0, "Der Magierlehrer von Dalaran");
 			pPlayer->SEND_GOSSIP_MENU(13999, pCreature->GetGUID());
 			break;
 		case GOSSIP_ACTION_INFO_DEF + 2:
@@ -672,7 +672,7 @@ void SendVendorsMenu_guard_dalaran(Player* pPlayer, Creature* pCreature, uint32 
 			pPlayer->SEND_GOSSIP_MENU(14107, pCreature->GetGUID());
 			break;
 		case GOSSIP_ACTION_INFO_DEF + 5:
-			pPlayer->SEND_POI(5753.19, 694.93, 7, 6, 0, "Obstverkäufer in Dalaran");
+			pPlayer->SEND_POI(5753.19f, 694.93f, 7, 6, 0, "Obstverkäufer in Dalaran");
 			pPlayer->SEND_GOSSIP_MENU(14106, pCreature->GetGUID());
 			break;
 		case GOSSIP_ACTION_INFO_DEF + 6:
@@ -878,47 +878,52 @@ struct MANGOS_DLL_DECL guard_contested : public guardAI
     {
         if ( pUnit->isInCombat() && pUnit->isAttackingPlayer())
         {
-            if(pUnit->GetTypeId() == TYPEID_PLAYER || pUnit->GetOwnerGUID() && GUID_HIPART(pUnit->GetOwnerGUID())==HIGHGUID_PLAYER)
+            if(pUnit->GetTypeId() == TYPEID_PLAYER)
             {
-				Unit* pVictim = pUnit->getVictim();
-				if(pVictim->GetTypeId() == TYPEID_PLAYER)
+				const ObjectGuid objGuid = pUnit->GetOwnerGuid();
+				if(!objGuid.IsEmpty())
 				{
-					m_creature->AddThreat(pUnit, 0.0f);
-					if(Unit* owner = pUnit->GetOwner())
-						m_creature->AddThreat(owner, 0.0f);
-			    	m_creature->Attack(pUnit,true);
-			    	m_creature->setFaction(72);
 
-					DoStartMovement(pUnit);
-                    SpellEntry const *spell = m_creature->reachWithSpellAttack(pUnit);
-                    DoCastSpell(pUnit, spell);
-						
-
-					if(!m_creature->isInCombat())
+					Unit* pVictim = pUnit->getVictim();
+					if(pVictim->GetTypeId() == TYPEID_PLAYER)
 					{
-						if (m_creature->GetEntry() == 15184)    //Cenarion Hold Infantry
+						m_creature->AddThreat(pUnit, 0.0f);
+						if(Unit* owner = pUnit->GetOwner())
+							m_creature->AddThreat(owner, 0.0f);
+			    		m_creature->Attack(pUnit,true);
+			    		m_creature->setFaction(72);
+
+						DoStartMovement(pUnit);
+						SpellEntry const *spell = m_creature->ReachWithSpellAttack(pUnit);
+						DoCastSpell(pUnit, spell);
+							
+
+						if(!m_creature->isInCombat())
 						{
-							srand (time(NULL));
-							if (rand()%100 <= 30)
+							if (m_creature->GetEntry() == 15184)    //Cenarion Hold Infantry
 							{
-								DoScriptText(PVP_GUARD_SAY1,m_creature);
-	                            //DoSay("Taste blade, mongrel!", LANG_UNIVERSAL,NULL);
-		                    }
-			                else if (rand()%100 > 30 && rand()%100 < 50)
-				            {
-								DoScriptText(PVP_GUARD_SAY2,m_creature);
-						        //DoSay("Please tell me that you didn`t just do what I think you just did. Please tell me that I`m not going to have to hurt you...", LANG_UNIVERSAL,NULL);
-							}
-							else if (rand()%100 >= 50)
-							{
-								DoScriptText(PVP_GUARD_SAY3,m_creature);
-								//DoSay("As if we don`t have enough problems, you go and create more!", LANG_UNIVERSAL,NULL);
+								srand (time(NULL));
+								if (rand()%100 <= 30)
+								{
+									DoScriptText(PVP_GUARD_SAY1,m_creature);
+									//DoSay("Taste blade, mongrel!", LANG_UNIVERSAL,NULL);
+								}
+								else if (rand()%100 > 30 && rand()%100 < 50)
+								{
+									DoScriptText(PVP_GUARD_SAY2,m_creature);
+									//DoSay("Please tell me that you didn`t just do what I think you just did. Please tell me that I`m not going to have to hurt you...", LANG_UNIVERSAL,NULL);
+								}
+								else if (rand()%100 >= 50)
+								{
+									DoScriptText(PVP_GUARD_SAY3,m_creature);
+									//DoSay("As if we don`t have enough problems, you go and create more!", LANG_UNIVERSAL,NULL);
+								}
 							}
 						}
 					}
-                }
-                
-            }
+	                
+				}
+			}
 			m_creature->AttackStop();
 			m_creature->DeleteThreatList();
 			m_creature->setFaction(121);

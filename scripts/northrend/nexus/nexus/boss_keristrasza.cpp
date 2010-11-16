@@ -184,7 +184,7 @@ struct MANGOS_DLL_DECL boss_keristraszaAI : public ScriptedAI
 
     void RemovePrison(bool remove)
     {
-        if (remove
+        if (remove)
         {
             m_creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_OOC_NOT_ATTACKABLE);
             m_creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
@@ -209,7 +209,7 @@ struct MANGOS_DLL_DECL boss_keristraszaAI : public ScriptedAI
             std::list<HostileReference*> ThreatList = m_creature->getThreatManager().getThreatList();
             for (std::list<HostileReference*>::const_iterator itr = ThreatList.begin(); itr != ThreatList.end(); itr++)
             {
-                Unit *pTarget = Unit::GetUnit(*m_creature, (*itr)->getUnitGuid());
+                Unit *pTarget = m_creature->GetMap()->GetUnit(ObjectGuid((*itr)->getUnitGuid()));
                 if (!pTarget || pTarget->GetTypeId() != TYPEID_PLAYER)
                     continue;
 

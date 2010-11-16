@@ -30,7 +30,6 @@ EndContentData */
 #include "precompiled.h"
 #include "escort_ai.h"
 #include "follower_ai.h"
-#include "simple_ai.h"
 
 /*####
 # npc_kerlonian
@@ -412,7 +411,7 @@ struct MANGOS_DLL_DECL npc_captured_rabid_thistle_bearAI : public FollowerAI
     {
 		if (Player* pHolder = GetLeaderForFollower())
 		{
-			pHolder->KilledMonsterCredit(NPC_CAPTURED_RABID_THISTLE_BEAR,NULL);
+			pHolder->KilledMonsterCredit(NPC_CAPTURED_RABID_THISTLE_BEAR);
 			SetFollowComplete();
 		}
     }
@@ -427,9 +426,9 @@ CreatureAI* GetAI_npc_captured_rabid_thistle_bear(Creature* pCreature)
 # npc_rabid_thistle_bear
 #####*/
 
-struct MANGOS_DLL_DECL npc_rabid_thistle_bearAI : SimpleAI
+struct MANGOS_DLL_DECL npc_rabid_thistle_bearAI : ScriptedAI
 {
-	npc_rabid_thistle_bearAI(Creature* pCreature) : SimpleAI(pCreature) { Reset(); }
+	npc_rabid_thistle_bearAI(Creature* pCreature) : ScriptedAI(pCreature) { Reset(); }
 
 	void Reset() {}
 
@@ -456,7 +455,6 @@ CreatureAI* GetAI_npc_rabid_thistle_bear(Creature* pCreature)
 {
 	return new npc_rabid_thistle_bearAI(pCreature);
 }
-
 
 void AddSC_darkshore()
 {

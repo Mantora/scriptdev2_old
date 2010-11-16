@@ -1199,7 +1199,7 @@ struct MANGOS_DLL_DECL npc_eye_of_acherusAI : public ScriptedAI
     {
         if(m_creature->isCharmed())
         {
-            if (StartTimer < uiDiff && !Active)
+            if (StartTimer < (int32)uiDiff && !Active)
             {
                 m_creature->CastSpell(m_creature, 70889, true);
                 m_creature->CastSpell(m_creature, 51892, true);
@@ -1213,7 +1213,7 @@ struct MANGOS_DLL_DECL npc_eye_of_acherusAI : public ScriptedAI
                 StartTimer -= uiDiff;
         }
         else
-            if (StartTimer < uiDiff)
+            if (StartTimer < (int32)uiDiff)
                 m_creature->ForcedDespawn();
     }
 };

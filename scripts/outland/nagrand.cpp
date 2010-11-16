@@ -767,7 +767,7 @@ struct MANGOS_DLL_DECL npc_Kurenai_CaptiveAI : public npc_escortAI
         if (pSummoned->GetEntry() == NPC_MURK_BRUTE_A)
             DoScriptText(SAY_NO_ESCAPE, pSummoned);
 
-        if (pSummoned->isTotem())
+        if (pSummoned->IsTotem())
             return;
 
         pSummoned->RemoveSplineFlag(SPLINEFLAG_WALKMODE);
@@ -830,7 +830,7 @@ bool QuestAccept_npc_Kurenai_Captive(Player* pPlayer, Creature* pCreature, const
             pCreature->SetStandState(UNIT_STAND_STATE_STAND);
             pCreature->setFaction(FACTION_ESCORT_A_NEUTRAL_ACTIVE);
 
-            pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest);
+            pEscortAI->Start(false, pPlayer->GetGUID(), pQuest);
 
             DoScriptText(SAY_START, pCreature);
 

@@ -209,11 +209,11 @@ struct MANGOS_DLL_DECL boss_telestraAI : public ScriptedAI
             Unit* FrostMagus;
             Unit* ArcaneMagus;
             if (FireMagusGUID)
-                FireMagus = Unit::GetUnit((*m_creature), FireMagusGUID);
+                FireMagus = m_creature->GetMap()->GetUnit(ObjectGuid(FireMagusGUID));
             if (FrostMagusGUID)
-                FrostMagus = Unit::GetUnit((*m_creature), FrostMagusGUID);
+                FrostMagus = m_creature->GetMap()->GetUnit(ObjectGuid(FrostMagusGUID));
             if (ArcaneMagusGUID)
-                ArcaneMagus = Unit::GetUnit((*m_creature), ArcaneMagusGUID);
+                ArcaneMagus = m_creature->GetMap()->GetUnit(ObjectGuid(ArcaneMagusGUID));
             if (FireMagus && FireMagus->isDead())
             {
                 FireMagusDead = true;

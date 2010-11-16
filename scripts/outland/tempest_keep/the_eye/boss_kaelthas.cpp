@@ -752,8 +752,9 @@ struct MANGOS_DLL_DECL boss_kaelthasAI : public ScriptedAI
                             error_log("SD2: Kael'Thas Advisor %u does not exist. Possibly despawned? Incorrectly Killed?", i);
                         else
                         {
-                            if (pTarget && advisorbase_ai* pAdvisorAI = dynamic_cast<advisorbase_ai*>(pAdvisor->AI()))
-                                pAdvisorAI->Revive(pTarget);
+                            if (pTarget)
+								if(advisorbase_ai* pAdvisorAI = dynamic_cast<advisorbase_ai*>(pAdvisor->AI()))
+									pAdvisorAI->Revive(pTarget);
                         }
                     }
 
@@ -1048,6 +1049,19 @@ struct MANGOS_DLL_DECL boss_kaelthasAI : public ScriptedAI
                     DoMeleeAttackIfReady();
             }
         }
+    }
+
+	void DeleteLegendaryWeapons()
+    {
+        if (!m_pInstance)
+            return;
+
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_WRAP_SLICER);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_INFINITY_BLADE);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_PHASESHIFT_BULWARK);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_DEVASTATION);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_COSMIC_INFUSER);
+        m_pInstance->DestroyItemFromAllPlayers(ITEM_NETHERSTAND_LONGBOW);
     }
 };
 

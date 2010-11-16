@@ -204,7 +204,7 @@ bool QuestAccept_npc_kinelory(Player* pPlayer, Creature* pCreature, const Quest*
         pCreature->setFaction(FACTION_ESCORT_A_NEUTRAL_PASSIVE);
 			if (npc_kineloryAI* pEscortAI = dynamic_cast<npc_kineloryAI*>(pCreature->AI()))
 			{
-				pEscortAI->Start(false, false, pPlayer->GetGUID(), pQuest, true);
+				pEscortAI->Start(false, pPlayer->GetGUID(), pQuest, true);
 			}
     }
 	return true;

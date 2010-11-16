@@ -173,7 +173,7 @@ struct MANGOS_DLL_DECL boss_ormorokAI : public ScriptedAI
             m_fBaseZ = m_creature->GetPositionZ();
             m_fBaseO = m_creature->GetOrientation();
             m_uiSpellCrystalSpikesTimer = 20000;
-        }else m_uiSpellCrystalSpikesTimer -=diff
+        }else m_uiSpellCrystalSpikesTimer -=diff;
 
         if (!m_bIsRegularMode && (m_uiSummonTanglerTimer < diff))
         {
@@ -254,7 +254,7 @@ CreatureAI* GetAI_mob_crystal_spike(Creature *_Creature)
 }
 
 CreatureAI* GetAI_mob_crystalline_tangler(Creature *_Creature)
-
+{
     return new mob_crystalline_tanglerAI (_Creature);
 }
 
@@ -269,7 +269,7 @@ void AddSC_boss_ormorok()
 
     newscript = new Script;
     newscript->Name="boss_ormorok";
-    newscript->GetAI = GetAI_boss_ormorok;
+    newscript->GetAI = &GetAI_boss_ormorok;
     newscript->RegisterSelf();
 
     newscript = new Script;

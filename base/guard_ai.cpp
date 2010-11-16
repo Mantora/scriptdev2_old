@@ -54,7 +54,7 @@ void guardAI::Reset()
        int temp5 = 0; 
        int temp6 = 0;
        temp3 = m_creature->getLevel();
-       elite = m_creature->isElite();
+       elite = m_creature->IsElite();
        if(elite)
        {
           temp4 = temp3 * 200;
@@ -98,7 +98,7 @@ void guardAI::Reset()
 void guardAI::Aggro(Unit *pWho)
 {
     //Send Zone Under Attack message to the LocalDefense and WorldDefense Channels
-    if (who->GetTypeId() == TYPEID_PLAYER && !ZoneAttackMsgTimer)
+    if (pWho->GetTypeId() == TYPEID_PLAYER && !ZoneAttackMsgTimer)
     {
         switch(urand(0, 2))
         {
@@ -106,7 +106,7 @@ void guardAI::Aggro(Unit *pWho)
             case 1: DoScriptText(SAY_GUARD_SIL_AGGRO2, m_creature, pWho); break;
             case 2: DoScriptText(SAY_GUARD_SIL_AGGRO3, m_creature, pWho); break;
         }
-        m_creature->SendZoneUnderAttackMessage((Player*)who);
+        m_creature->SendZoneUnderAttackMessage((Player*)pWho);
         ZoneAttackMsgTimer = 30000;
     }
 }
@@ -171,23 +171,23 @@ void guardAI::UpdateAI(const uint32 uiDiff)
         m_uiGlobalCooldown = 0;
 
     //Always decrease ZoneAttackMsgTimer
-    if (ZoneAttackMsgTimer > diff)
-        ZoneAttackMsgTimer -= diff;
+    if (ZoneAttackMsgTimer > uiDiff)
+        ZoneAttackMsgTimer -= uiDiff;
     else ZoneAttackMsgTimer = 0;
 
     //Always decrease Bandage
-    if (Bandage > diff)
-        Bandage -= diff;
+    if (Bandage > uiDiff)
+        Bandage -= uiDiff;
     else Bandage = 0;
 
     //Always decrease OffHand
-    if (OffHand > diff)
-        OffHand -= diff;
+    if (OffHand > uiDiff)
+        OffHand -= uiDiff;
     else OffHand = 0;
 
     //Always decrease Potion
-    if (Potion > diff)
-        Potion -= diff;
+    if (Potion > uiDiff)
+        Potion -= uiDiff;
     else Potion = 0;
 
     if(!m_creature->isAlive())
@@ -238,8 +238,8 @@ void guardAI::UpdateAI(const uint32 uiDiff)
 
 
     //Always decrease Help when in combat
-    if (Help > diff)
-        Help -= diff;
+    if (Help > uiDiff)
+        Help -= uiDiff;
     else Help = 0;
 
     if(!Help && !(m_creature->GetEntry() == 2041 || m_creature->GetEntry() == 4423))
@@ -320,19 +320,19 @@ void guardAI::UpdateAI(const uint32 uiDiff)
             //Select a healing spell if less than 30% hp
             if (m_creature->GetHealthPercent() < 40.0f)
             {
-               if(Potion == 0 && !Healing)
+               if(Potion == 0 && !bHealing)
                {
                   Potion = 60000;
                   info = 17534;
-                  Healing = true;
+                  bHealing = true;
                }
                else
                {
-                  if(Bandage == 0 && !Healing)
+                  if(Bandage == 0 && !bHealing)
                   {
                      Bandage = 60000;
                      info = 38919;
-                     Healing = true;
+                     bHealing = true;
                   }
                   else
                       if(m_creature->HasAura(2457,EFFECT_INDEX_0))
@@ -410,10 +410,10 @@ void guardAI::UpdateAI(const uint32 uiDiff)
             }
 
             //50% chance to replace our white hit with a spell
-            if (info && urand(0, 1) == 0 && !GlobalCooldown)
+            if (info && urand(0, 1) == 0 && !m_uiGlobalCooldown)
             {
                 //Cast the spell
-                if (Healing)DoCastSpellIfCan(m_creature, info);
+                if (bHealing)DoCastSpellIfCan(m_creature, info);
                 else
                 {
                          if(Change == 3)

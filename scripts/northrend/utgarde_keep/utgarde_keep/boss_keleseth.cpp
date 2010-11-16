@@ -86,7 +86,7 @@ struct MANGOS_DLL_DECL mob_frost_tombAI : public ScriptedAI
 
         if (FrostTombGUID)
         {
-            Unit* FrostTomb = Unit::GetUnit((*m_creature),FrostTombGUID);
+            Unit* FrostTomb = m_creature->GetMap()->GetUnit(ObjectGuid(FrostTombGUID));
             if (FrostTomb)
                 FrostTomb->RemoveAurasDueToSpell(SPELL_FROST_TOMB);
         }
@@ -94,7 +94,7 @@ struct MANGOS_DLL_DECL mob_frost_tombAI : public ScriptedAI
 
     void UpdateAI(const uint32 diff)
     {
-        Unit* temp = Unit::GetUnit((*m_creature),FrostTombGUID);
+        Unit* temp = m_creature->GetMap()->GetUnit(ObjectGuid(FrostTombGUID));
         if ((temp && temp->isAlive() && !temp->HasAura(SPELL_FROST_TOMB)) || !temp)
             m_creature->DealDamage(m_creature, m_creature->GetHealth(), NULL, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, NULL, false);
     }

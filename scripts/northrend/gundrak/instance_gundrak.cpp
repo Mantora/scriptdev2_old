@@ -356,7 +356,7 @@ struct MANGOS_DLL_DECL instance_gundrak : public ScriptedInstance
 			}
 		}
 	}
-}
+};
 
 InstanceData* GetInstanceData_instance_gundrak(Map* pMap)
 {

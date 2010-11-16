@@ -87,7 +87,7 @@ struct MANGOS_DLL_DECL boss_skarvald_the_constructorAI : public ScriptedAI
         ghost = (m_creature->GetEntry() == MOB_SKARVALD_GHOST);
         if (!ghost && m_pInstance)
         {
-            Unit* dalronn = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_DALRONN));
+            Unit* dalronn = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_DALRONN)));
             if (dalronn && dalronn->isDead())
                 CAST_CRE(dalronn)->Respawn();
 
@@ -101,7 +101,7 @@ struct MANGOS_DLL_DECL boss_skarvald_the_constructorAI : public ScriptedAI
         {
             DoScriptText(YELL_SKARVALD_AGGRO,m_creature);
 
-            Unit* dalronn = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_DALRONN));
+            Unit* dalronn = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_DALRONN)));
             if (dalronn && dalronn->isAlive() && !dalronn->getVictim())
                 dalronn->getThreatManager().addThreat(who,0.0f);
 
@@ -113,7 +113,7 @@ struct MANGOS_DLL_DECL boss_skarvald_the_constructorAI : public ScriptedAI
     {
         if (!ghost && m_pInstance)
         {
-            Unit* dalronn = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_DALRONN));
+            Unit* dalronn = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_DALRONN)));
             if (dalronn)
             {
                 if (dalronn->isDead())
@@ -167,7 +167,7 @@ struct MANGOS_DLL_DECL boss_skarvald_the_constructorAI : public ScriptedAI
                 if (Check_Timer <= diff)
                 {
                     Check_Timer = 5000;
-                    Unit* dalronn = Unit::GetUnit(*m_creature, m_pInstance ? m_pInstance->GetData64(DATA_DALRONN) : 0);
+                    Unit* dalronn = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance ? m_pInstance->GetData64(DATA_DALRONN) : 0));
                     if (dalronn && dalronn->isDead())
                     {
                         Dalronn_isDead = true;
@@ -243,7 +243,7 @@ struct MANGOS_DLL_DECL boss_dalronn_the_controllerAI : public ScriptedAI
         ghost = m_creature->GetEntry() == MOB_DALRONN_GHOST;
         if (!ghost && m_pInstance)
         {
-            Unit* skarvald = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_SKARVALD));
+            Unit* skarvald = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_SKARVALD)));
             if (skarvald && skarvald->isDead())
                 CAST_CRE(skarvald)->Respawn();
 
@@ -255,7 +255,7 @@ struct MANGOS_DLL_DECL boss_dalronn_the_controllerAI : public ScriptedAI
     {
         if (!ghost && m_pInstance)
         {
-            Unit* skarvald = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_SKARVALD));
+            Unit* skarvald = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_SKARVALD)));
             if (skarvald && skarvald->isAlive() && !skarvald->getVictim())
                 skarvald->getThreatManager().addThreat(who,0.0f);
 
@@ -270,7 +270,7 @@ struct MANGOS_DLL_DECL boss_dalronn_the_controllerAI : public ScriptedAI
     {
         if (!ghost && m_pInstance)
         {
-            Unit* skarvald = Unit::GetUnit((*m_creature),m_pInstance->GetData64(DATA_SKARVALD));
+            Unit* skarvald = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_SKARVALD)));
             if (skarvald)
                 if (skarvald->isDead())
                 {
@@ -330,7 +330,7 @@ struct MANGOS_DLL_DECL boss_dalronn_the_controllerAI : public ScriptedAI
                 if (Check_Timer <= diff)
                 {
                     Check_Timer = 5000;
-                    Unit* skarvald = Unit::GetUnit(*m_creature, m_pInstance ? m_pInstance->GetData64(DATA_SKARVALD) : 0);
+                    Unit* skarvald = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance ? m_pInstance->GetData64(DATA_SKARVALD) : 0));
                     if (skarvald && skarvald->isDead())
                     {
                         Skarvald_isDead = true;

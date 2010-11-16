@@ -49,7 +49,7 @@ enum
 class MANGOS_DLL_DECL AzgalorDoom : public Aura
 {
     public:
-        AzgalorDoom(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, target, caster, NULL)
+        AzgalorDoom(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, SpellAuraHolder *holder, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, holder, target, caster, NULL)
             {}
 };
 
@@ -129,7 +129,8 @@ struct MANGOS_DLL_DECL boss_azgalorAI : public ScriptedAI
                         if (eff >= TOTAL_SPELL_EFFECTS)
                             continue;
                         //uint8 i=1;
-                        pTarget->AddAura(new AzgalorDoom(spellInfo, SpellEffectIndex(i), NULL, pTarget, pTarget));
+						SpellAuraHolder *holder = CreateSpellAuraHolder(spellInfo, pTarget, pTarget);
+                        holder->AddAura(new AzgalorDoom(spellInfo, SpellEffectIndex(i), NULL, holder, pTarget, pTarget), SpellEffectIndex(i));
                     }
                 }
                 else

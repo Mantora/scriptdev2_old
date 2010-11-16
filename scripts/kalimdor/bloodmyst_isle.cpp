@@ -231,9 +231,9 @@ struct MANGOS_DLL_DECL npc_tracker_of_the_handAI : public ScriptedAI
 
 				pMatis->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_MOUNT);
 				//pMatis->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
-				pMatis->setDeathState(JUST_DIED); 
+				pMatis->SetDeathState(JUST_DIED); 
 				pMatis->RemoveCorpse();
-				m_creature->setDeathState(JUST_DIED);
+				m_creature->SetDeathState(JUST_DIED);
 				m_creature->RemoveCorpse();
 				break;
 		}
@@ -443,11 +443,11 @@ struct MANGOS_DLL_DECL npc_vindicator_kurosAI : public ScriptedAI
 					break;
 				case 18:
 					//Fade image, remove corpses etc, matis despawns after the kill, no remove needed here
-					pMatis->setDeathState(JUST_DIED);
+					pMatis->SetDeathState(JUST_DIED);
 					pMatis->RemoveCorpse();
-					pBladeOfArgus->setDeathState(JUST_DIED);
+					pBladeOfArgus->SetDeathState(JUST_DIED);
 					pBladeOfArgus->RemoveCorpse();
-					pVelenImage->setDeathState(JUST_DIED); 
+					pVelenImage->SetDeathState(JUST_DIED); 
 					pVelenImage->RemoveCorpse();
 					m_uiLifeTimer =6000;
 					m_uiEventPhase=0;

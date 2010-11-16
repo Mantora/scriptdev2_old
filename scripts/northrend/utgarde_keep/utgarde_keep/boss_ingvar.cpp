@@ -346,7 +346,7 @@ struct MANGOS_DLL_DECL mob_annhylde_the_callerAI : public ScriptedAI
         m_creature->GetPosition(x,y,z);
         m_creature->NearTeleportTo(x+1,y,z+30,0);
 
-        Unit* ingvar = Unit::GetUnit(*m_creature, m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0);
+        Unit* ingvar = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0));
         if (ingvar)
         {
             m_creature->GetMotionMaster()->MovePoint(1,x,y,z+15);
@@ -359,7 +359,7 @@ struct MANGOS_DLL_DECL mob_annhylde_the_callerAI : public ScriptedAI
     {
         if (type != POINT_MOTION_TYPE)
             return;
-        Unit* ingvar = Unit::GetUnit((*m_creature), m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0);
+        Unit* ingvar = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0));
         if (ingvar)
         {
             switch (id)
@@ -389,7 +389,7 @@ struct MANGOS_DLL_DECL mob_annhylde_the_callerAI : public ScriptedAI
             {
                 if (Resurect_Phase == 1)
                 {
-                    Unit* ingvar = Unit::GetUnit(*m_creature, m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0);
+                    Unit* ingvar = m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance ? m_pInstance->GetData64(DATA_INGVAR) : 0));
                     if (ingvar)
                     {
                         ingvar->SetStandState(UNIT_STAND_STATE_STAND);

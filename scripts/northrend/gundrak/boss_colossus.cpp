@@ -51,12 +51,12 @@ struct MANGOS_DLL_DECL boss_colossusAI : public ScriptedAI
 {
     boss_colossusAI(Creature* pCreature) : ScriptedAI(pCreature)
     {
-        m_pInstance = (instance_gundrak*)pCreature->GetInstanceData();
+        m_pInstance = (ScriptedInstance*)pCreature->GetInstanceData();
         m_bIsRegularMode = pCreature->GetMap()->IsRegularDifficulty();
         Reset();
     }
 
-    instance_gundrak* m_pInstance;
+    ScriptedInstance* m_pInstance;
     bool m_bIsRegularMode;
     bool m_bFirstEmerge;
 
@@ -68,7 +68,7 @@ struct MANGOS_DLL_DECL boss_colossusAI : public ScriptedAI
         m_uiMightyBlowTimer = 10000;
     }
 
-    void Agrro()
+    void Agro()
     {
         DoCastSpellIfCan(m_creature, m_bIsRegularMode ? SPELL_MORTAL_STRIKES : SPELL_MORTAL_STRIKES_H);
 
@@ -114,18 +114,6 @@ struct MANGOS_DLL_DECL boss_colossusAI : public ScriptedAI
                 DoCastSpellIfCan(m_creature, SPELL_EMERGE);
             }
         }
-    }
-
-	void Aggro(Unit* pWho)
-    {
-        if (m_pInstance)
-            m_pInstance->SetData(TYPE_COLOSSUS, IN_PROGRESS);
-    }
-
-	void JustDied(Unit* pKiller)
-    {
-        if (m_pInstance)
-            m_pInstance->SetData(TYPE_COLOSSUS, DONE);
     }
 
     void UpdateAI(const uint32 uiDiff)

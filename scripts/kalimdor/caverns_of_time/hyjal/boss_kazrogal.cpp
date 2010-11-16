@@ -47,7 +47,7 @@ enum
 class MANGOS_DLL_DECL KazrogalMark : public Aura
 {
     public:
-        KazrogalMark(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, target, caster, NULL)
+        KazrogalMark(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, SpellAuraHolder *holder, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, holder, target, caster, NULL)
             {}
 };
 
@@ -123,7 +123,7 @@ struct MANGOS_DLL_DECL boss_kazrogalAI : public ScriptedAI
             std::list<HostileReference *> t_list = m_creature->getThreatManager().getThreatList();
             for(std::list<HostileReference *>::iterator itr = t_list.begin(); itr!= t_list.end(); ++itr)
             {
-                Unit *target = Unit::GetUnit(*m_creature, (*itr)->getUnitGuid());
+                Unit *target = m_creature->GetMap()->GetUnit(ObjectGuid((*itr)->getUnitGuid()));
                 if (target && target->GetTypeId() == TYPEID_PLAYER && target->getPowerType() == POWER_MANA)
                 {
                     for(uint32 i=0; i < MAX_EFFECT_INDEX; ++i)
@@ -131,7 +131,8 @@ struct MANGOS_DLL_DECL boss_kazrogalAI : public ScriptedAI
                         uint8 eff = spellInfo->Effect[SpellEffectIndex(i)];
                         if (eff >= TOTAL_SPELL_EFFECTS)
                             continue;
-                        target->AddAura(new KazrogalMark(spellInfo, SpellEffectIndex(i), NULL, target, target));
+						SpellAuraHolder *holder = CreateSpellAuraHolder(spellInfo, target, target);
+                        holder->AddAura(new KazrogalMark(spellInfo, SpellEffectIndex(i), NULL, holder, target, target), SpellEffectIndex(i));
                     }    
                 }
             }
@@ -165,7 +166,7 @@ struct MANGOS_DLL_DECL boss_kazrogalAI : public ScriptedAI
             std::list<HostileReference *> t_list = m_creature->getThreatManager().getThreatList();
             for(std::list<HostileReference *>::iterator itr = t_list.begin(); itr!= t_list.end(); ++itr)
             {
-                Unit *target = Unit::GetUnit(*m_creature, (*itr)->getUnitGuid());
+                Unit *target = m_creature->GetMap()->GetUnit(ObjectGuid((*itr)->getUnitGuid()));
                 if (target && target->GetTypeId() == TYPEID_PLAYER && target->getPowerType() == POWER_MANA)
                     if(target->HasAura(SPELL_MARK))
                         if((target->GetPower(POWER_MANA)*100) / target->GetMaxPower(POWER_MANA) <= 1)

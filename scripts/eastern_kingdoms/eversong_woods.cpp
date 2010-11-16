@@ -559,7 +559,7 @@ struct MANGOS_DLL_DECL npc_mana_wyrmAI : public ScriptedAI
         {
             if(((Player*)pCaster)->GetQuestStatus(8346) == QUEST_STATUS_INCOMPLETE)
             {
-                ((Player*)pCaster)->KilledMonsterCredit(15468, 0);
+                ((Player*)pCaster)->KilledMonsterCredit(15468);
             }
         }
     }
@@ -603,8 +603,8 @@ void AddSC_eversong_woods()
     pNewScript->GetAI = &GetAI_npc_infused_crystal;
     pNewScript->RegisterSelf();
 
-    newscript = new Script;
-    newscript->Name = "npc_mana_wyrm";
-    newscript->GetAI = &GetAI_npc_mana_wyrm;
-    newscript->RegisterSelf();
+    pNewScript = new Script;
+    pNewScript->Name = "npc_mana_wyrm";
+    pNewScript->GetAI = &GetAI_npc_mana_wyrm;
+    pNewScript->RegisterSelf();
 }

@@ -64,7 +64,7 @@ enum
 class MANGOS_DLL_DECL AnetheronSleep : public Aura
 {
     public:
-        AnetheronSleep(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, target, caster, NULL)
+        AnetheronSleep(SpellEntry *spellInfo, SpellEffectIndex eff, int32 *bp, SpellAuraHolder *holder, Unit *target, Unit *caster) : Aura(spellInfo, eff, bp, holder, target, caster, NULL)
             {}
 };
 
@@ -147,7 +147,8 @@ struct MANGOS_DLL_DECL boss_anetheronAI : public ScriptedAI
                             uint8 eff = spellInfo->Effect[SpellEffectIndex(i)];
                             if (eff >= TOTAL_SPELL_EFFECTS)
                                 continue;
-                            pTarget->AddAura(new AnetheronSleep(spellInfo, SpellEffectIndex(i), NULL, pTarget, pTarget));
+							SpellAuraHolder *holder = CreateSpellAuraHolder(spellInfo, pTarget, pTarget);
+                            holder->AddAura(new AnetheronSleep(spellInfo, SpellEffectIndex(i), NULL, holder, pTarget, pTarget), SpellEffectIndex(i));
                         }
                     }
                     else
@@ -260,7 +261,7 @@ struct MANGOS_DLL_DECL mob_towering_infernalAI : public ScriptedAI
 
         if(Immolation_Timer < diff)
         {
-            if (Creature* Anetheron = (Creature*)Unit::GetUnit(*m_creature, m_pInstance->GetData64(DATA_ANETHERON)))
+            if (Creature* Anetheron = (Creature*)m_creature->GetMap()->GetUnit(ObjectGuid(m_pInstance->GetData64(DATA_ANETHERON))))
                 if (m_creature->IsWithinDistInMap(Anetheron, 10.0f) && Anetheron->isAlive() && Anetheron->HasAura(SPELL_VAMPIRIC_AURA))
                     DoCast(m_creature, SPELL_VAMPIRIC_AURA);
             Immolation_Timer = 1000;
