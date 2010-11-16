@@ -426,7 +426,10 @@
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\dark_portal\boss_temporus.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\dark_portal\dark_portal.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\dark_portal\instance_dark_portal.cpp" />
+	<ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\boss_anetheron.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\boss_archimonde.cpp" />
+	<ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\boss_azgalor.cpp" />
+	<ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\boss_kazrogal.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\hyjal.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\hyjalAI.cpp" />
     <ClCompile Include="..\scripts\kalimdor\caverns_of_time\hyjal\instance_hyjal.cpp" />
