@@ -35,6 +35,7 @@ boss_ukorz
 EndContentData */
 
 #include "precompiled.h"
+#include "zulfarrak.h"
 
 /*######
 ## npc_sergeant_bly
@@ -407,24 +408,6 @@ CreatureAI* GetAI_npc_servant(Creature* pCreature)
 }
 
 /*######
-## go_gong_of_ghazrilla
-######*/
-
-// TODO: Gong should be non selectable after using it
-bool ZF_Gong = true;
-
-bool GOHello_go_gong_of_ghazrilla(Player* pPlayer, GameObject* pGo)
-{
-	if (ZF_Gong)
-	{
-		pGo->SummonCreature(7273, 1663.542358f, 1186.532f, 6.469f, 0.785f, TEMPSUMMON_TIMED_DESPAWN, 180000);
-		ZF_Gong = false;
-	}
-    
-	return false;
-}
-
-/*######
 ## boss_ghazrilla
 ######*/
 
@@ -669,6 +652,67 @@ CreatureAI* GetAI_boss_ukorz(Creature* pCreature)
     return new boss_ukorzAI(pCreature);
 }
 
+bool ProcessEventId_event_go_zulfarrak_gong(uint32 uiEventId, Object* pSource, Object* pTarget, bool bIsStart)
+{
+    if (bIsStart && pSource->GetTypeId() == TYPEID_PLAYER)
+    {
+        if (instance_zulfarrak* pInstance = (instance_zulfarrak*)((Player*)pSource)->GetInstanceData())
+        {
+            if (pInstance->GetData(TYPE_GAHZRILLA) == NOT_STARTED || pInstance->GetData(TYPE_GAHZRILLA) == FAIL)
+            {
+                pInstance->SetData(TYPE_GAHZRILLA, IN_PROGRESS);
+                return false;                               // Summon Gahz'rilla by Database Script
+            }
+            else
+                return true;                                // Prevent DB script summoning Gahz'rilla
+        }
+    }
+    return false;
+}
+
+bool AreaTrigger_at_zulfarrak(Player* pPlayer, AreaTriggerEntry const* pAt)
+{
+    if (pAt->id == AREATRIGGER_ANTUSUL)
+    {
+        if (pPlayer->isGameMaster() || pPlayer->isDead())
+            return false;
+
+        instance_zulfarrak* pInstance = (instance_zulfarrak*)pPlayer->GetInstanceData();
+
+        if (!pInstance)
+            return false;
+
+        if (pInstance->GetData(TYPE_ANTUSUL) == NOT_STARTED || pInstance->GetData(TYPE_ANTUSUL) == FAIL)
+        {
+            if (Creature* pAntuSul = pInstance->instance->GetCreature(pInstance->GetData64(NPC_ANTUSUL)))
+            {
+                if (pAntuSul->isAlive())
+                    pAntuSul->AI()->AttackStart(pPlayer);
+            }
+        }
+    }
+
+    return false;
+}
+
+/*######
+## go_gong_of_ghazrilla
+######
+
+// TODO: Gong should be non selectable after using it
+bool ZF_Gong = true;
+
+bool GOHello_go_gong_of_ghazrilla(Player* pPlayer, GameObject* pGo)
+{
+	if (ZF_Gong)
+	{
+		pGo->SummonCreature(7273, 1663.542358f, 1186.532f, 6.469f, 0.785f, TEMPSUMMON_TIMED_DESPAWN, 180000);
+		ZF_Gong = false;
+	}
+    
+	return false;
+}
+*/
 
 void AddSC_zulfarrak()
 {
@@ -703,10 +747,12 @@ void AddSC_zulfarrak()
     newscript->GetAI = &GetAI_npc_servant;
     newscript->RegisterSelf();
 
+	/*
     newscript = new Script;
     newscript->Name = "go_gong_of_ghazrilla";
     newscript->pGOHello = &GOHello_go_gong_of_ghazrilla;
     newscript->RegisterSelf();
+	*/
 
     newscript = new Script;
     newscript->Name = "boss_ghazrilla";
@@ -727,4 +773,13 @@ void AddSC_zulfarrak()
     newscript->Name = "boss_ukorz";
     newscript->GetAI = &GetAI_boss_ukorz;
     newscript->RegisterSelf();
-}
+
+	newscript = new Script;
+    newscript->Name = "event_go_zulfarrak_gong";
+    newscript->pProcessEventId = &ProcessEventId_event_go_zulfarrak_gong;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "at_zulfarrak";
+    newscript->pAreaTrigger = &AreaTrigger_at_zulfarrak;
+    newscript->RegisterSelf();
