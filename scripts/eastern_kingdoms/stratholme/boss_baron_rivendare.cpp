@@ -24,12 +24,12 @@ EndScriptData */
 #include "precompiled.h"
 #include "stratholme.h"
 
-#define SAY_0    "Intruders! More pawns of the Argent Dawn, no doubt. I already count one of their number among my prisoners. Withdraw from my domain before she is executed!"
-#define SAY_1    "You're still here? Your foolishness is amusing! The Argent Dawn wench needn't suffer in vain. Leave at once and she shall be spared!"
-#define SAY_2    "I shall take great pleasure in taking this poor wretch's life! It's not too late, she needn't suffer in vain. Turn back and her death shall be merciful!"
-#define SAY_3    "May this prisoner's death serve as a warning. None shall defy the Scourge and live!"
-#define SAY_4    "So you see fit to toy with the Lich King's creations? Ramstein, be sure to give the intruders a proper greeting."
-#define SAY_5    "Time to take matters into my own hands. Come. Enter my domain and challenge the might of the Scourge!"
+#define SAY_0    "Eindringlinge! Zweifellos mehr Handlanger der Argentumdämmerung. Es befindet sich bereits eine von ihnen in meiner Gefangenschaft. Zieht Euch aus meiner Domäne zurück, bevor ich sie hinrichten lasse!"
+#define SAY_1    "Ihr seid immer noch hier? Eure Torheit ist wahrhaft amüsant! Das Mädchen der Argentumdämmerung muss jedoch nicht unnötig leiden. Verschwindet sofort, und ihr Leben wird verschont werden!"
+#define SAY_2    "Es wird mir großes Vergnügen bereiten, dieses armselige Mädchen ihres Lebens zu berauben! Aber es ist noch nicht zu spät, sie muss nicht unnötig leiden. Kehrt um und ich werde ihr einen gnadenvollen Tod bereiten."
+#define SAY_3    "Möge der Tod dieses Gefangenen als ein Beispiel dienen. Niemand, der sich der Geißel in den Weg stellt, wird überleben!"
+#define SAY_4    "Soso, Ihr haltet es also für angebracht, Euch mit den Schöpfungen des Lichkönigs anzulegen? Ramstein, die Eindringlinge sollten angemessen begrüßt werden."
+#define SAY_5    "Es ist an der Zeit, die Dinge selbst in die Hand zu nehmen. Kommt nur. Betretet mein Reich und fordert die Macht der Geißel heraus!"
 
 #define ADD_1X 4017.403809f
 #define ADD_1Y -3339.703369f

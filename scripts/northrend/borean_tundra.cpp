@@ -46,8 +46,8 @@ EndContentData */
 ## npc_fizzcrank_fullthrottle
 ######*/
 
-#define GOSSIP_ITEM_GO_ON   "Go on."
-#define GOSSIP_ITEM_TELL_ME "Tell me what's going on out here, Fizzcrank."
+#define GOSSIP_ITEM_GO_ON   "Weiter."
+#define GOSSIP_ITEM_TELL_ME "Erzähl mir, was hier vor sich geht, Kurbelzisch."
 
 enum
 {
@@ -124,7 +124,7 @@ bool GossipSelect_npc_fizzcrank_fullthrottle(Player* pPlayer, Creature* pCreatur
 ## npc_iruk
 ######*/
 
-#define GOSSIP_ITEM_IRUK        "<Search corpse for Issliruk's Totem.>"
+#define GOSSIP_ITEM_IRUK        "<Durchsucht die Leiche nach Issliruks Totem.>"
 
 enum
 {
@@ -156,8 +156,8 @@ bool GossipSelect_npc_iruk(Player* pPlayer, Creature* pCreature, uint32 uiSender
 ## npc_kara_thricestar
 ######*/
 
-#define GOSSIP_ITEM_THRICESTAR1      "Do you think I could take a ride on one of those flying machines?"
-#define GOSSIP_ITEM_THRICESTAR2      "Kara, I need to be flown out the Dens of Dying to find Bixie."
+#define GOSSIP_ITEM_THRICESTAR1      "Glaubt Ihr, ich könnte eine dieser Flugmaschinen benutzen?"
+#define GOSSIP_ITEM_THRICESTAR2      "Kara, Ich muss zu den Höhlen des Todes ausgeflogen werden, um Bixie zu finden."
 
 enum
 {
@@ -326,8 +326,8 @@ bool GOHello_go_caribou_trap(Player* pPlayer, GameObject* pGo)
 ## npc_surristrasz
 ######*/
 
-#define GOSSIP_ITEM_FREE_FLIGHT "I'd like passage to the Transitus Shield."
-#define GOSSIP_ITEM_FLIGHT      "May I use a drake to fly elsewhere?"
+#define GOSSIP_ITEM_FREE_FLIGHT "Ich möchte Durchgang zum Titusschild."
+#define GOSSIP_ITEM_FLIGHT      "Darf ich den Drachen benutzen, um woanders hinzufliegen?"
 
 enum
 {
@@ -369,7 +369,7 @@ bool GossipSelect_npc_surristrasz(Player* pPlayer, Creature* pCreature, uint32 u
 ## npc_tiare
 ######*/
 
-#define GOSSIP_ITEM_TELEPORT    "Teleport me to Amber Ledge, please."
+#define GOSSIP_ITEM_TELEPORT    "Teleportiert mich zum Bernsteinflöz, bitte."
 
 enum
 {

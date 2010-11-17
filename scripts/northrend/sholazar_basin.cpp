@@ -247,8 +247,8 @@ bool GossipSelect_npc_mosswalker_victim(Player* pPlayer, Creature* pCreature, ui
 ## npc_vekjik - TODO, can be moved to database (already exist)
 ######*/
 
-#define GOSSIP_VEKJIK_ITEM1 "Shaman Vekjik, I have spoken with the big-tongues and they desire peace. I have brought this offering on their behalf."
-#define GOSSIP_VEKJIK_ITEM2 "No no... I had no intentions of betraying your people. I was only defending myself. it was all a misunderstanding."
+#define GOSSIP_VEKJIK_ITEM1 "Schamane Vekjik, ich habe mit den Gro?ungen gesprochen und sie wollen Frieden. Auf ihr Gehei?hin ??bringe ich dieses Angebot."
+#define GOSSIP_VEKJIK_ITEM2 "Nein, nein... Ich hatte nie vor, unser Volk zu verraten. Ich habe mich nur selbst verteidigt. Es war alles ein Missverst?nis."
 
 enum
 {

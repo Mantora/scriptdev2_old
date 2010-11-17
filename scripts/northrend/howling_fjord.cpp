@@ -149,7 +149,7 @@ CreatureAI* GetAI_npc_daegarn(Creature* pCreature)
 ## npc_deathstalker_razael - TODO, can be moved to database
 ######*/
 
-#define GOSSIP_ITEM_DEATHSTALKER_RAZAEL "High Executor Anselm requests your report."
+#define GOSSIP_ITEM_DEATHSTALKER_RAZAEL "Hochexekutor Anselm verlangt einen Bericht über die Situation."
 
 enum
 {
@@ -192,7 +192,7 @@ bool GossipSelect_npc_deathstalker_razael(Player* pPlayer, Creature* pCreature, 
 ## npc_dark_ranger_lyana - TODO, can be moved to database
 ######*/
 
-#define GOSSIP_ITEM_DARK_RANGER_LYANA "High Executor Anselm requests your report."
+#define GOSSIP_ITEM_DARK_RANGER_LYANA "Hochexekutor Anselm erbittet Euren Bericht."
 
 enum
 {
@@ -234,8 +234,8 @@ bool GossipSelect_npc_dark_ranger_lyana(Player* pPlayer, Creature* pCreature, ui
 ## npc_mcgoyver - TODO, can be moved to database
 ######*/
 
-#define GOSSIP_ITEM_MCGOYVER1 "Walt sent me to pick up some dark iron ingots."
-#define GOSSIP_ITEM_MCGOYVER2 "Yarp."
+#define GOSSIP_ITEM_MCGOYVER1 "Walt hat mich geschickt, um ein paar Dunkeleisenblöcke abzuholen."
+#define GOSSIP_ITEM_MCGOYVER2 "Jarp."
 
 enum
 {

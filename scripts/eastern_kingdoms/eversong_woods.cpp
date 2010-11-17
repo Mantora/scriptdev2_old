@@ -305,8 +305,8 @@ CreatureAI* GetAI_npc_prospector_anvilward(Creature* pCreature)
     return new npc_prospector_anvilwardAI(pCreature);
 }
 
-#define GOSSIP_ITEM_MOMENT "I need a moment of your time, sir."
-#define GOSSIP_ITEM_SHOW   "Why... yes, of course. I've something to show you right inside this building, Mr. Anvilward."
+#define GOSSIP_ITEM_MOMENT "Habt Ihr einen Moment Zeit für mich, mein Herr?"
+#define GOSSIP_ITEM_SHOW   "Warum... ja, natürlich. Ich möchte Euch etwas zeigen, hier, in diesem Gebäude dort, Meister Ambossel."
 
 bool GossipHello_npc_prospector_anvilward(Player* pPlayer, Creature* pCreature)
 {
