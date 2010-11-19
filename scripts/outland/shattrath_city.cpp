@@ -49,8 +49,6 @@ enum
     GOSSIP_ITEM_BOOK        = -3000105,
 };
 
-#define GOSSIP_ITEM_BOOK    "Ezekiel sagte, Ihr hättet da ein bestimmtes Buch..."
-
 struct MANGOS_DLL_DECL npc_dirty_larryAI : public ScriptedAI
 {
     npc_dirty_larryAI(Creature* pCreature) : ScriptedAI(pCreature)
