@@ -428,7 +428,7 @@ struct MANGOS_DLL_DECL boss_ghazrillaAI : public ScriptedAI
 		Icicle_Timer = 8000;
 		FreezeSolid_Timer = 13000;
 		GhazrillaSlam_Timer = 18000;
-		ZF_Gong = true;
+		//ZF_Gong = true;
 	}
 
     void UpdateAI(const uint32 diff)
@@ -783,3 +783,4 @@ void AddSC_zulfarrak()
     newscript->Name = "at_zulfarrak";
     newscript->pAreaTrigger = &AreaTrigger_at_zulfarrak;
     newscript->RegisterSelf();
+}

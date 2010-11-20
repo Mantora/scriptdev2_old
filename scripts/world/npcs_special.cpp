@@ -1418,7 +1418,7 @@ void SendAction_npc_sayge(Player* pPlayer, Creature* pCreature, uint32 uiAction)
         case GOSSIP_ACTION_INFO_DEF+5:
             pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ich würde meinem Lehensherrn das Ohr des Monsters bringen, um dessen Tod für mich zu beanspruchen und die Belohnung an mich nehmen. Es ist falsch eine Tat für sich zu beanspruchen, die in Wirklichkeit ein Anderer vollbracht hat.",            GOSSIP_SENDER_MAIN+5, GOSSIP_ACTION_INFO_DEF);
             pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ich würde meinem Lehensherrn das Ohr des Monsters bringen, um dessen Tod für mich zu beanspruchen - immerhin wurde es durch meine Hand getötet. Anschließend würde ich dem Ritter einen Teil der Belohnung abgeben, damit er der mittellosen Familie helfen kann.",       GOSSIP_SENDER_MAIN+4, GOSSIP_ACTION_INFO_DEF);
-            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ich erzähle niemanden von meiner heldenhaften Tat und erlaube dem Ritter die Belohnung für sich zu beanspruchen, damit er der mittellosen Familie helfen kann.",        GOSSIP_SENDER_MAIN+3, GOSSIP_ACTION_INFO_DEF);F);
+            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ich erzähle niemanden von meiner heldenhaften Tat und erlaube dem Ritter die Belohnung für sich zu beanspruchen, damit er der mittellosen Familie helfen kann.",        GOSSIP_SENDER_MAIN+3, GOSSIP_ACTION_INFO_DEF);
             pPlayer->SEND_GOSSIP_MENU(7363, pCreature->GetGUID());
             break;
         case GOSSIP_ACTION_INFO_DEF:

@@ -439,7 +439,7 @@ bool GossipSelect_npc_murkblood_overseer(Player* pPlayer, Creature* pCreature, u
             pPlayer->SEND_GOSSIP_MENU(10940, pCreature->GetGUID());
             break;
         case GOSSIP_ACTION_INFO_DEF+3:
-            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Fahrt bitte fort.", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+4)
+            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Fahrt bitte fort.", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+4);
                                                             //correct id not known
             pPlayer->SEND_GOSSIP_MENU(10940, pCreature->GetGUID());
             break;

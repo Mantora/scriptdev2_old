@@ -587,8 +587,8 @@ void AddSC_howling_fjord()
     pNewScript->pGossipSelect = &GossipSelect_npc_silvermoon_harry;
     pNewScript->RegisterSelf();
 
-	newscript = new Script;
-	newscript->Name = "npc_your_inner_turmoil";
-	newscript->GetAI = &GetAI_npc_your_inner_turmoil;
-	newscript->RegisterSelf();
+	pNewScript = new Script;
+	pNewScript->Name = "npc_your_inner_turmoil";
+	pNewScript->GetAI = &GetAI_npc_your_inner_turmoil;
+	pNewScript->RegisterSelf();
 }

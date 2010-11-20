@@ -39,7 +39,7 @@ bool GossipHello_npc_lorax(Player* pPlayer, Creature* pCreature)
         pPlayer->PrepareQuestMenu(pCreature->GetGUID());
 
     if (pPlayer->GetQuestStatus(5126) == QUEST_STATUS_INCOMPLETE)
-        Player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ihr müsst schon entschuldigen, Lorax. Verrücktisch sprech ich nicht.", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF);
+        pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Ihr müsst schon entschuldigen, Lorax. Verrücktisch sprech ich nicht.", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF);
 
     pPlayer->SEND_GOSSIP_MENU(pPlayer->GetGossipTextId(pCreature), pCreature->GetGUID());
 

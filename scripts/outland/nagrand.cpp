@@ -920,9 +920,9 @@ void AddSC_nagrand()
     pNewScript->GetAI = &GetAI_npc_creditmarker_visit_with_ancestors;
     pNewScript->RegisterSelf();
 
-	newscript = new Script;
-    newscript->Name = "npc_Kurenai_Captive";
-    newscript->GetAI = &GetAI_npc_Kurenai_Captive;
-    newscript->pQuestAccept = &QuestAccept_npc_Kurenai_Captive;
-    newscript->RegisterSelf();
+	pNewScript = new Script;
+    pNewScript->Name = "npc_Kurenai_Captive";
+    pNewScript->GetAI = &GetAI_npc_Kurenai_Captive;
+    pNewScript->pQuestAccept = &QuestAccept_npc_Kurenai_Captive;
+    pNewScript->RegisterSelf();
 }
