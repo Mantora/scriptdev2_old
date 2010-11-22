@@ -254,21 +254,21 @@ void UpdateAI(const uint32 diff)
     if(!Help && m_creature->GetEntry() != 2041 && m_creature->GetEntry() != 18103)
     {
        if(m_creature->getFaction() == 85)
-        m_creature->MonsterSay("Orgrimmar is under Invasion! Guards!! Help me!",LANG_ORCISH,ObjectGuid());
+        m_creature->MonsterSay("Orgrimmar is under Invasion! Guards!! Help me!",LANG_ORCISH);
        if(m_creature->getFaction() == 79)
-        m_creature->MonsterSay("Darnassus is under Invasion! Guards!! Help me!",LANG_DARNASSIAN,ObjectGuid());
+        m_creature->MonsterSay("Darnassus is under Invasion! Guards!! Help me!",LANG_DARNASSIAN);
        if(m_creature->getFaction() == 11)
-        m_creature->MonsterSay("Stormwind is under Invasion! Guards!! Help me!",LANG_COMMON,ObjectGuid());
+        m_creature->MonsterSay("Stormwind is under Invasion! Guards!! Help me!",LANG_COMMON);
        if(m_creature->getFaction() == 71)
-        m_creature->MonsterSay("Undercity is under Invasion! Guards!! Help me!",LANG_GUTTERSPEAK,ObjectGuid());
+        m_creature->MonsterSay("Undercity is under Invasion! Guards!! Help me!",LANG_GUTTERSPEAK);
        if(m_creature->getFaction() == 57)
-        m_creature->MonsterSay("Ironforge is under Invasion! Guards!! Help me!",LANG_DWARVISH,ObjectGuid());
+        m_creature->MonsterSay("Ironforge is under Invasion! Guards!! Help me!",LANG_DWARVISH);
        if(m_creature->getFaction() == 105)
-        m_creature->MonsterSay("Thunder Bluff is under Invasion! Guards!! Help me!",LANG_TAURAHE,ObjectGuid());
+        m_creature->MonsterSay("Thunder Bluff is under Invasion! Guards!! Help me!",LANG_TAURAHE);
        if(m_creature->getFaction() == 1638)
-        m_creature->MonsterSay("The Exodar is under Invasion! Guards!! Help me!",LANG_DRAENEI,ObjectGuid());
+        m_creature->MonsterSay("The Exodar is under Invasion! Guards!! Help me!",LANG_DRAENEI);
        if(m_creature->getFaction() == 1604)
-        m_creature->MonsterSay("Silvermoon is under Invasion! Guards!! Help me!",LANG_THALASSIAN,ObjectGuid());
+        m_creature->MonsterSay("Silvermoon is under Invasion! Guards!! Help me!",LANG_THALASSIAN);
        m_creature->HandleEmoteCommand(EMOTE_ONESHOT_BATTLEROAR);
        for(int i = 0; i < 3;i++)
        {

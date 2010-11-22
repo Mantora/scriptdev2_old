@@ -142,6 +142,11 @@ struct MANGOS_DLL_DECL boss_lokenAI : public ScriptedAI
         }
     }
 
+	int32 round(float value)
+	{
+		return int32(value + 0.5);
+	}
+
     void UpdateAI(const uint32 uiDiff)
     {
         //Return since we have no target

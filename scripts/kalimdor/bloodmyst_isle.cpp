@@ -361,7 +361,7 @@ struct MANGOS_DLL_DECL npc_vindicator_kurosAI : public ScriptedAI
 					m_uiEventPhase=4;
 					break;
 				case 4:
-					pMatis->MonsterTextEmote("Matis spits at the image of Velen.",pVelenImage->GetGUID());
+					pMatis->MonsterTextEmote("Matis spits at the image of Velen.",pVelenImage);
 					DoScriptText(VELEN_IMAGE_4,pVelenImage);
 					m_uiLifeTimer =6000;
 					m_uiEventPhase=5;
@@ -374,7 +374,7 @@ struct MANGOS_DLL_DECL npc_vindicator_kurosAI : public ScriptedAI
 					break;
 				case 6:
 					//Matis laughes
-					pMatis->MonsterTextEmote("Matis laughs.",pVelenImage->GetGUID());
+					pMatis->MonsterTextEmote("Matis laughs.",pVelenImage);
 					DoScriptText(MATIS_JUDGED_2,pMatis);
 					m_uiLifeTimer =8000;
 					m_uiEventPhase=7;
@@ -432,7 +432,7 @@ struct MANGOS_DLL_DECL npc_vindicator_kurosAI : public ScriptedAI
 					break;
 				case 16:
 					m_creature->CastSpell(pMatis,SPELL_HAMMER_OF_VINDICATION,false); 
-					m_creature->MonsterTextEmote("Vindicator Kuros spits on the corpse of Matis.",pMatis->GetGUID());
+					m_creature->MonsterTextEmote("Vindicator Kuros spits on the corpse of Matis.",pMatis);
 					m_uiLifeTimer =6000;
 					m_uiEventPhase=17;
 					break;

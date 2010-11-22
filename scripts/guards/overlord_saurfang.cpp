@@ -82,7 +82,7 @@ void grunts()
        else
            Y = y - urand(20, 30);
        m_creature->GetRespawnCoord(x,y,z); 
-       m_creature->MonsterSay("Protection, to the aid!",LANG_UNIVERSAL,ObjectGuid());
+       m_creature->MonsterSay("Protection, to the aid!",LANG_UNIVERSAL);
        if (m_creature->GetEntry() == 466) // Proverka al marcus
        Helper = DoSpawnCreature(68, (float) (X - x), (float) (Y - y), (float) (Z -z), 0, TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT, 5000);
     else
