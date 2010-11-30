@@ -22,8 +22,8 @@ enum
     DATA_HAKKAR						= 15,
     DATA_TRIGGER					= 16,
     DATA_1							= 17,
-	DATA_TRIGGER2					= 18,
-	DATA_SANTA						= 19,
+    DATA_TRIGGER2					= 18,
+    DATA_SANTA						= 19,
 
     //Room1
     GO_DATA_COLLISION				= 20,
@@ -39,6 +39,9 @@ enum
     GO_DATA_STATUE4					= 28,
     GO_DATA_STATUE5					= 29,
 
+	//Room 4
+	GO_DATA_GATE4					= 30,
+
     //---
     //Entrys
     //---
@@ -50,8 +53,8 @@ enum
     NPC_HAKKAR			= 400079,
     NPC_TRIGGER			= 400068,
     NPC_1				= 400070,
-	NPC_TRIGGER2		= 400080,
-	NPC_SANTA			= 400081,
+    NPC_TRIGGER2		= 400080,
+    NPC_SANTA			= 400081,
 
     //Room1
     GO_OCULUS_CANNON	= 400005,
@@ -68,7 +71,10 @@ enum
     GO_GATE2			= 400013,
     GO_GATE2_ROOTS		= 400011,
     GO_LIGHT1			= 106528,
-    GO_LIGHT2			= 183948
+    GO_LIGHT2			= 183948,
+
+	//Room4
+	GO_GATE4			= 400015
 };
 
 #endif

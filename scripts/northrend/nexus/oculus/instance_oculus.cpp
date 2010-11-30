@@ -41,7 +41,7 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
     uint64 m_uiTriggerGUID;
     uint64 m_uiTrigger2GUID;
 
-	uint64 m_uiSantaGUID;
+    uint64 m_uiSantaGUID;
 
     uint64 m_ui1GUID;
 
@@ -60,6 +60,8 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
     uint64 m_uiLight1GUID;
     uint64 m_uiLight2GUID;
 
+	uint64 m_uiGate4GUID;
+
 
 
     void Initialize()
@@ -74,7 +76,7 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
         m_uiTriggerGUID = 0;
         m_uiTrigger2GUID = 0;
 
-		m_uiSantaGUID = 0;
+        m_uiSantaGUID = 0;
 
         m_ui1GUID = 0;
 
@@ -92,6 +94,8 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
         m_uiStatue5GUID = 0;
         m_uiLight1GUID = 0;
         m_uiLight2GUID = 0;
+
+		m_uiGate4GUID = 0;
     }
 
     void OnCreatureCreate(Creature* pCreature)
@@ -116,6 +120,7 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
     {
         switch(pGo->GetEntry())
         {
+			case GO_GATE4: m_uiGate4GUID = pGo->GetGUID(); break;
             case GO_OCULUS_CANNON: m_uiCannonGUID = pGo->GetGUID(); break;
             case GO_RANCID_MEAT: m_uiMeatGUID = pGo->GetGUID(); break;
             case GO_OCULUS_GATE1: 
@@ -182,10 +187,10 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
             case TYPE_OSSIRIAN:
                 m_auiEncounter[2] = uiData;
                 break;
-            case TYPE_TRIAL:
+			case TYPE_TRIAL:
                 m_auiEncounter[3] = uiData;
                 break;
-        }
+		}
 
         if (uiData == DONE)
         {
@@ -238,8 +243,8 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
                 return m_uiTriggerGUID;
             case DATA_TRIGGER2:
                 return m_uiTrigger2GUID;
-			case DATA_SANTA:
-				return m_uiSantaGUID;
+            case DATA_SANTA:
+                return m_uiSantaGUID;
             case DATA_1:
                 return m_ui1GUID;
             case GO_OCULUS_COLLISION:
@@ -268,6 +273,8 @@ struct MANGOS_DLL_DECL instance_oculus : public ScriptedInstance
                 return m_uiLight1GUID;
             case GO_LIGHT2:
                 return m_uiLight2GUID;
+			case GO_GATE4:
+				return m_uiGate4GUID;
         }
         return 0;
     }
