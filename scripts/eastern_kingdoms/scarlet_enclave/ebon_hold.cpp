@@ -1178,7 +1178,7 @@ struct MANGOS_DLL_DECL npc_eye_of_acherusAI : public ScriptedAI
 
         m_creature->RemoveAurasDueToSpell(530);
 
-        Player* owner = ObjectAccessor::FindPlayer(ownerGuid);;
+        Player* owner = m_creature->GetMap()->GetPlayer(ownerGuid);
 
         if(!owner)
             return;
@@ -1206,7 +1206,7 @@ struct MANGOS_DLL_DECL npc_eye_of_acherusAI : public ScriptedAI
             if (ownerGuid.IsEmpty())
                 ownerGuid = m_creature->GetCharmerOrOwner()->GetObjectGuid();
 
-            if (StartTimer < uiDiff && !Active)
+            if (StartTimer < int32(uiDiff) && !Active)
             {
                 m_creature->CastSpell(m_creature, 70889, true);
                 m_creature->CastSpell(m_creature, 51892, true);
@@ -1221,10 +1221,10 @@ struct MANGOS_DLL_DECL npc_eye_of_acherusAI : public ScriptedAI
         }
         else
         {
-            if (StartTimer < uiDiff)
+            if (StartTimer < int32(uiDiff))
             {
                 m_creature->ForcedDespawn();
-                if (Player* owner = ObjectAccessor::FindPlayer(ownerGuid))
+                if (Player* owner = m_creature->GetMap()->GetPlayer(ownerGuid))
                 {
                     owner->RemoveAurasDueToSpell(51852);
                     owner->RemoveAurasDueToSpell(51923);
