@@ -1809,6 +1809,22 @@
     <ClCompile Include="..\scripts\northrend\nexus\oculus\oculus.cpp">
       <Filter>scripts\northrend\nexus\oculus</Filter>
     </ClCompile>
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\instance_oculus.cpp">
+      <Filter>scripts\northrend\nexus\oculus</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\boss_drakos.cpp">
+      <Filter>scripts\northrend\nexus\oculus</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\boss_varos.cpp">
+      <Filter>scripts\northrend\nexus\oculus</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\boss_urom.cpp">
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\boss_urom.cpp">
+      <Filter>scripts\northrend\nexus\oculus</Filter>
+    </ClCompile>
+	<ClCompile Include="..\scripts\northrend\nexus\oculus\boss_eregos.cpp">
+      <Filter>scripts\northrend\nexus\oculus</Filter>
+    </ClCompile>
     <ClCompile Include="..\scripts\northrend\obsidian_sanctum\boss_sartharion.cpp">
       <Filter>scripts\northrend\obsidian_sanctum</Filter>
     </ClCompile>
