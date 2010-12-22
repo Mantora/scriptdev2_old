@@ -15,14 +15,14 @@
  */
 
 /* ScriptData
-SDName: Instance_Blackwing_Lair
+SDName: instance_icecrown_citadel
 SD%Complete: 0
-SDComment:
-SDCategory: Blackwing Lair
+SDComment: Placeholder
+SDCategory: Icecrown Citadel
 EndScriptData */
 
 #include "precompiled.h"
 
-void AddSC_instance_blackwing_lair()
+void AddSC_instance_icecrown_citadel()
 {
 }
