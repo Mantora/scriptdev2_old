@@ -1277,7 +1277,7 @@ bool GossipHello_npc_mount_vendor(Player* pPlayer, Creature* pCreature)
             else canBuy = true;
             break;
         case 4731:                                          //Zachariah Post
-            if (pPlayer->GetReputationRank(68) != REP_EXALTED && race != RACE_UNDEAD_PLAYER)
+            if (pPlayer->GetReputationRank(68) != REP_EXALTED && race != RACE_UNDEAD)
                 pPlayer->SEND_GOSSIP_MENU(5840, pCreature->GetGUID());
             else canBuy = true;
             break;
@@ -2314,6 +2314,41 @@ CreatureAI* GetAI_npc_explosive_decoy(Creature* pCreature)
     return new npc_explosive_decoyAI(pCreature);
 }
 
+struct MANGOS_DLL_DECL npc_eye_of_kilrogg : public ScriptedAI
+{
+    npc_eye_of_kilrogg(Creature* pCreature) : ScriptedAI(pCreature) {Reset();}
+
+    Player* p_owner;
+
+    void Reset()
+    {
+        p_owner = NULL;
+    }
+
+    void UpdateAI(const uint32 diff)
+    {
+        if (p_owner)
+            return;
+
+        p_owner = (Player*)m_creature->GetCharmerOrOwner();
+
+        if (!p_owner)
+            return;
+
+        if (!m_creature->HasAura(2585))
+            m_creature->CastSpell(m_creature, 2585, true);
+
+        if (p_owner->HasAura(58081))
+            m_creature->CastSpell(m_creature, 58083, true);
+
+    }
+};
+
+CreatureAI* GetAI_npc_eye_of_kilrogg(Creature* pCreature)
+{
+    return new npc_eye_of_kilrogg(pCreature);
+}
+
 /*######
 ## Risen Ghoul, Army of the Dead Ghoul
 ######*/
@@ -3183,6 +3218,11 @@ void AddSC_npcs_special()
     newscript = new Script;
     newscript->Name = "npc_explosive_decoy";
     newscript->GetAI = &GetAI_npc_explosive_decoy;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "npc_eye_of_kilrogg";
+    newscript->GetAI = &GetAI_npc_eye_of_kilrogg;
     newscript->RegisterSelf();
 	
     newscript = new Script;
