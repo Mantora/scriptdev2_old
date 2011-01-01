@@ -460,7 +460,7 @@ struct MANGOS_DLL_DECL npc_vindicator_kurosAI : public ScriptedAI
 	}
 };
 
-bool QuestComplete_npc_vindicator_kuros(Player* pPlayer, Creature* pCreature, const Quest* pQuest, uint32 item)
+bool QuestComplete_npc_vindicator_kuros(Player* pPlayer, Creature* pCreature, const Quest* pQuest)
 {
 	if (pQuest->GetQuestId() != QUEST_MATIS_THE_CRUEL)
 		return true;

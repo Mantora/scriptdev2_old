@@ -216,7 +216,7 @@ bool ItemUse_item_groms_tribute(Player* pPlayer, Item* pItem, const SpellCastTar
 			pPlayer->CastSpell(pPlayer, SPELL_ORC_TRIBUTE, false);
 			pPlayer->SummonGameobject(GO_ORC_TRIBUTE,pPlayer->GetPositionX(), pPlayer->GetPositionY(), pPlayer->GetPositionZ(),0, 5);
 			break;
-			case RACE_UNDEAD_PLAYER:
+		case RACE_UNDEAD:
 			pPlayer->CastSpell(pPlayer, SPELL_UNDEAD_TRIBUTE, false);
 			pPlayer->SummonGameobject(GO_UNDEAD_TRIBUTE,pPlayer->GetPositionX(), pPlayer->GetPositionY(), pPlayer->GetPositionZ(),0, 5);
 			break;
