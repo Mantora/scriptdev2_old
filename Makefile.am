@@ -52,6 +52,7 @@ include/sc_grid_searchers.h \
 include/sc_instance.cpp \
 include/sc_instance.h \
 scripts/battlegrounds/battleground.cpp \
+scripts/battlegrounds/battlegroundSA.cpp \
 scripts/custom/custom_events.cpp \
 scripts/custom/npc_arena_honor.cpp \
 scripts/custom/teleguy.cpp \
