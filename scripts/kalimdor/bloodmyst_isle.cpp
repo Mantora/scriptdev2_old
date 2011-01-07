@@ -516,6 +516,6 @@ void AddSC_bloodmyst_isle()
 	newscript = new Script;
     newscript->Name = "npc_vindicator_kuros";
     newscript->GetAI = &GetAI_npc_vindicator_kuros;
-	newscript->pChooseReward = &QuestComplete_npc_vindicator_kuros;
+	newscript->pQuestRewardedNPC = &QuestComplete_npc_vindicator_kuros;
     newscript->RegisterSelf();
 }

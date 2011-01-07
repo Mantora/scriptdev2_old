@@ -734,7 +734,7 @@ void AddSC_zulfarrak()
 
     newscript = new Script;
     newscript->Name = "go_shallow_grave";
-    newscript->pGOHello = &GOHello_go_shallow_grave;
+    newscript->pGossipHelloGO = &GOHello_go_shallow_grave;
     newscript->RegisterSelf();
 
     newscript = new Script;

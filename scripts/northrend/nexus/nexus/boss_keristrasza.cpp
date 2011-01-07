@@ -288,6 +288,6 @@ void AddSC_boss_keristrasza()
 
     newscript = new Script;
     newscript->Name = "go_containment_sphere";
-    newscript->pGOHello = &GOHello_containment_sphere;
+    newscript->pGossipHelloGO = &GOHello_containment_sphere;
     newscript->RegisterSelf();
 }

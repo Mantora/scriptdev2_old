@@ -577,6 +577,7 @@
     <ClCompile Include="..\scripts\northrend\naxxramas\boss_thaddius.cpp" />
     <ClCompile Include="..\scripts\northrend\naxxramas\instance_naxxramas.cpp" />
     <ClCompile Include="..\scripts\northrend\nexus\eye_of_eternity\boss_malygos.cpp" />
+	<ClCompile Include="..\scripts\northrend\nexus\eye_of_eternity\instance_eye_of_eternity.cpp" />
     <ClCompile Include="..\scripts\northrend\nexus\nexus\boss_anomalus.cpp" />
     <ClCompile Include="..\scripts\northrend\nexus\nexus\boss_keristrasza.cpp" />
     <ClCompile Include="..\scripts\northrend\nexus\nexus\boss_ormorok.cpp" />
@@ -752,6 +753,9 @@
     <ClCompile Include="..\include\sc_creature.cpp" />
     <ClCompile Include="..\include\sc_grid_searchers.cpp" />
     <ClCompile Include="..\include\sc_instance.cpp" />
+    <ClCompile Include="..\system\MangosdRev.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\system\ScriptLoader.cpp" />
     <ClCompile Include="..\system\system.cpp" />
     <ClCompile Include="..\ScriptMgr.cpp" />

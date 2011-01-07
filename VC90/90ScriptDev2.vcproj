@@ -2065,6 +2065,14 @@
 							RelativePath="..\scripts\northrend\nexus\eye_of_eternity\boss_malygos.cpp"
 							>
 						</File>
+						<File
+							RelativePath="..\scripts\northrend\nexus\eye_of_eternity\eye_of_eternity.h"
+							>
+						</File>
+						<File
+							RelativePath="..\scripts\northrend\nexus\eye_of_eternity\instance_eye_of_eternity.cpp"
+							>
+						</File>
 					</Filter>
 					<Filter
 						Name="nexus"
@@ -3281,6 +3289,42 @@
 		<Filter
 			Name="system"
 			>
+			<File
+				RelativePath="..\system\MangosdRev.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+			</File>
 			<File
 				RelativePath="..\system\ScriptLoader.cpp"
 				>

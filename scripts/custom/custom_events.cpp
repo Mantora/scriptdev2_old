@@ -1281,13 +1281,13 @@ void AddSC_custom_events()
     newscript = new Script;
     newscript->Name = "event_npc_follow_one";
     newscript->GetAI = &GetAI_event_npc_follow_one;
-    newscript->pQuestAccept = &QuestAccept_event_npc_follow_one;
+    newscript->pQuestAcceptNPC = &QuestAccept_event_npc_follow_one;
     newscript->RegisterSelf();
 
     newscript = new Script;
     newscript->Name = "event_npc_follow_two";
     newscript->GetAI = &GetAI_event_npc_follow_two;
-    newscript->pQuestAccept = &QuestAccept_event_npc_follow_two;
+    newscript->pQuestAcceptNPC = &QuestAccept_event_npc_follow_two;
     newscript->RegisterSelf();
 
     newscript = new Script;

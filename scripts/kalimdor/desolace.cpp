@@ -192,12 +192,12 @@ void AddSC_desolace()
     newscript = new Script;
     newscript->Name = "npc_aged_dying_ancient_kodo";
     newscript->GetAI = &GetAI_npc_aged_dying_ancient_kodo;
-    newscript->pEffectDummyCreature = &EffectDummyCreature_npc_aged_dying_ancient_kodo;
+    newscript->pEffectDummyNPC = &EffectDummyCreature_npc_aged_dying_ancient_kodo;
     newscript->pGossipHello = &GossipHello_npc_aged_dying_ancient_kodo;
     newscript->RegisterSelf();
 
     newscript = new Script;	
     newscript->Name = "go_hand_of_iruxos_crystal";
-    newscript->pGOHello = &GOHello_go_hand_of_iruxos_crystal;
+    newscript->pGossipHelloGO = &GOHello_go_hand_of_iruxos_crystal;
     newscript->RegisterSelf();
 }

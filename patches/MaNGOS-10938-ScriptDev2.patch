@@ -1,3 +1,15 @@
+From 30a6e85148fb7ae7c57d6693d195907b0097e988 Mon Sep 17 00:00:00 2001
+From: NoFantasy <nofantasy@nf.no>
+Date: Thu, 30 Dec 2010 14:14:49 +0100
+Subject: [PATCH] ScriptDev2 patch
+
+Signed-off-by: NoFantasy <nofantasy@nf.no>
+---
+ configure.ac             |    5 +++++
+ src/bindings/Makefile.am |    1 +
+ src/mangosd/Makefile.am  |    3 ++-
+ 3 files changed, 8 insertions(+), 1 deletions(-)
+
 diff --git a/configure.ac b/configure.ac
 index e1bb2ed..c86e539 100644
 --- a/configure.ac
@@ -44,3 +56,6 @@ index 72faf8b..b7723f5 100644
  
  ## Additional files to include when running 'make dist'
  #  Include world daemon configuration
+-- 
+1.6.3.2.1299.gee46c
+

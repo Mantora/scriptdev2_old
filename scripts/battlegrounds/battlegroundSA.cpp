@@ -355,6 +355,6 @@ void AddSC_battlegroundSA()
 
     newscript = new Script;
     newscript->Name = "go_sa_def_portal";
-    newscript->pGOHello = &GOHello_go_wintergrasp_def_portal;
+    newscript->pGossipHelloGO = &GOHello_go_wintergrasp_def_portal;
     newscript->RegisterSelf();
 }

@@ -313,6 +313,6 @@ void AddSC_boss_skadi()
 
     newscript = new Script;
     newscript->Name = "go_skaldi_harpoonluncher";
-    newscript->pGOHello = &GOHello_go_skaldi_harpoonluncher;
+    newscript->pGossipHelloGO = &GOHello_go_skaldi_harpoonluncher;
     newscript->RegisterSelf();
 }

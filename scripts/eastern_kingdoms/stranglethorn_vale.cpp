@@ -221,6 +221,6 @@ void AddSC_stranglethorn_vale()
     newscript->Name = "npc_riggle_bassbait";
     newscript->GetAI = &GetAI_npc_riggle_bassbait;
     newscript->pGossipHello = &GossipHello_npc_riggle_bassbait;
-    newscript->pChooseReward = &ChooseReward_npc_riggle_bassbait;
+    newscript->pQuestRewardedNPC = &ChooseReward_npc_riggle_bassbait;
     newscript->RegisterSelf();
 }

@@ -1075,7 +1075,7 @@ void AddSC_azuremyst_isle()
     newscript = new Script;
     newscript->Name = "npc_magwin";
     newscript->GetAI = &GetAI_npc_magwinAI;
-    newscript->pQuestAccept = &QuestAccept_npc_magwin;
+    newscript->pQuestAcceptNPC = &QuestAccept_npc_magwin;
     newscript->RegisterSelf();
 
     newscript = new Script;
@@ -1096,7 +1096,7 @@ void AddSC_azuremyst_isle()
 
 	newscript = new Script;
 	newscript->Name= "npc_totem_of_akida";
-	newscript->pQuestAccept = &QuestAccept_npc_totem_of_akida;
+	newscript->pQuestAcceptNPC = &QuestAccept_npc_totem_of_akida;
 	newscript->RegisterSelf();
 
 	newscript = new Script;
@@ -1106,7 +1106,7 @@ void AddSC_azuremyst_isle()
 
 	newscript = new Script;
 	newscript->Name= "npc_totem_of_coo";
-	newscript->pQuestAccept = &QuestAccept_npc_totem_of_coo;
+	newscript->pQuestAcceptNPC = &QuestAccept_npc_totem_of_coo;
 	newscript->RegisterSelf();
 
 	newscript = new Script;
@@ -1116,7 +1116,7 @@ void AddSC_azuremyst_isle()
 
 	newscript = new Script;
 	newscript->Name= "npc_totem_of_yor";
-	newscript->pQuestAccept = &QuestAccept_npc_totem_of_yor;
+	newscript->pQuestAcceptNPC = &QuestAccept_npc_totem_of_yor;
 	newscript->RegisterSelf();
 
 	newscript = new Script;
@@ -1126,6 +1126,6 @@ void AddSC_azuremyst_isle()
 
 	newscript = new Script;
 	newscript->Name= "npc_totem_of_tikti";
-	newscript->pQuestAccept = &QuestAccept_npc_totem_of_tikti;
+	newscript->pQuestAcceptNPC = &QuestAccept_npc_totem_of_tikti;
 	newscript->RegisterSelf();
 }

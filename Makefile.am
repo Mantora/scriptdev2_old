@@ -433,6 +433,8 @@ scripts/northrend/naxxramas/boss_sapphiron.cpp \
 scripts/northrend/naxxramas/boss_thaddius.cpp \
 scripts/northrend/naxxramas/naxxramas.h \
 scripts/northrend/naxxramas/instance_naxxramas.cpp \
+scripts/northrend/nexus/eye_of_eternity/eye_of_eternity.h \
+scripts/northrend/nexus/eye_of_eternity/instance_eye_of_eternity.cpp \
 scripts/northrend/nexus/eye_of_eternity/boss_malygos.cpp \
 scripts/northrend/nexus/nexus/boss_anomalus.cpp \
 scripts/northrend/nexus/nexus/boss_keristrasza.cpp \
@@ -646,6 +648,7 @@ scripts/world/mob_generic_creature.cpp \
 scripts/world/npc_professions.cpp \
 scripts/world/npcs_special.cpp \
 scripts/world/spell_scripts.cpp \
+system/MangosdRev.cpp \
 system/ScriptLoader.cpp \
 system/ScriptLoader.h \
 system/system.cpp \

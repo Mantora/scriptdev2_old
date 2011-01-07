@@ -894,7 +894,7 @@ void AddSC_nagrand()
     pNewScript->Name = "npc_altruis_the_sufferer";
     pNewScript->pGossipHello =  &GossipHello_npc_altruis_the_sufferer;
     pNewScript->pGossipSelect = &GossipSelect_npc_altruis_the_sufferer;
-    pNewScript->pQuestAccept =  &QuestAccept_npc_altruis_the_sufferer;
+    pNewScript->pQuestAcceptNPC =  &QuestAccept_npc_altruis_the_sufferer;
     pNewScript->RegisterSelf();
 
     pNewScript = new Script;
@@ -912,7 +912,7 @@ void AddSC_nagrand()
     pNewScript = new Script;
     pNewScript->Name = "npc_maghar_captive";
     pNewScript->GetAI = &GetAI_npc_maghar_captive;
-    pNewScript->pQuestAccept = &QuestAccept_npc_maghar_captive;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_maghar_captive;
     pNewScript->RegisterSelf();
 
     pNewScript = new Script;
@@ -923,6 +923,6 @@ void AddSC_nagrand()
 	pNewScript = new Script;
     pNewScript->Name = "npc_Kurenai_Captive";
     pNewScript->GetAI = &GetAI_npc_Kurenai_Captive;
-    pNewScript->pQuestAccept = &QuestAccept_npc_Kurenai_Captive;
+    pNewScript->pQuestAcceptNPC = &QuestAccept_npc_Kurenai_Captive;
     pNewScript->RegisterSelf();
 }
