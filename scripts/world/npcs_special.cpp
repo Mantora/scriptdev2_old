@@ -1783,6 +1783,7 @@ struct MANGOS_DLL_DECL npc_mirror_imageAI : public ScriptedAI
         if (!owner) 
             return;
 
+		m_creature->SetHealth(owner->GetHealth());
         m_creature->SetUInt32Value(UNIT_FIELD_BYTES_0, 2048);
         m_creature->SetUInt32Value(UNIT_FIELD_BYTES_2,owner->GetUInt32Value(UNIT_FIELD_BYTES_2));
         m_creature->SetUInt32Value(UNIT_FIELD_FLAGS, UNIT_FLAG_PVP_ATTACKABLE);
